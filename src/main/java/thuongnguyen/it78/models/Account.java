@@ -13,6 +13,7 @@ public class Account implements Serializable {
     private int gender;
     private String address;
     private String avatar;
+    private int active;
     private int role;
 
     public Account() {
@@ -88,6 +89,14 @@ public class Account implements Serializable {
 
     public void setRole(int role) {
         this.role = role;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
     }
 
     @Override

@@ -1,10 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Admin
-  Date: 1/23/2021
-  Time: 11:10 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="thuongnguyen.it78.models.Account" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="/resources/img/site/favicon.ico">
 
-    <title>Quản lý tài khoản</title>
+
+    <title>Quản Lý Tài Khoản</title>
 
     <!-- Custom fonts for this template -->
     <link href="/resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -74,21 +71,12 @@
                 <span>Tài Khoản</span></a>
         </li>
 
-        <!-- Nav Item - Pages Collapse Menu -->
+        <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
+            <a class="nav-link" href="/admin/account.html">
                 <i class="fas fa-calendar fa-fw mr-2 text-gray-400"></i>
-                <span>Sản phẩm</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="products.html">Tổng quan</a>
-                    <a class="collapse-item" href="product-details.html">Chi tiết</a>
-                </div>
-            </div>
+                <span>Sản phẩm</span></a>
         </li>
-
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
@@ -334,10 +322,10 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary" style="display: flex; justify-content: space-between;">
-                            <span>Quản lý tài khoản</span>
+                            <b>Quản lý tài khoản</b>
                             <a href="#" class="btn btn-success btn-sm btn-icon-split">
                                 <!-- Add  -->
-                                <span class="text" style="margin-right: auto" data-toggle="modal" data-target="#add-product">Thêm tài khoản</span>
+                                <span class="text" style="margin-right: auto" data-toggle="modal" data-target="#add-account">Thêm tài khoản</span>
                             </a>
 
                         </h6>
@@ -376,222 +364,39 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
+                                <%
+                                    ArrayList<Account> listAccount = (ArrayList<Account>) request.getAttribute("list-account");
+                                    for(Account account : listAccount) {
+                                %>
                                 <tr>
-                                    <td>1</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Nguyễn</td>
-                                    <td>aloxinhfacebook@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
+                                    <td class = "id"><%=account.getId()%></td>
+                                    <td class = "avatar"><img src="/resources/img/avatar/<%=account.getAvatar()%>" alt="Avatar"></td>
+                                    <td class = "fullname"><%=account.getFullName()%></td>
+                                    <td class = "email"><%=account.getEmail()%></td>
+                                    <td class = "phone"><%=account.getNumber()%></td>
+                                    <td class = "active"><%=account.getActive()%></td>
+                                    <td class = "role"><%=account.getRole()%></td>
+
+
                                     <td>
-                                        <button class="btn btn-warning btn-circle btn-sm" data-toggle="modal" data-target = "#edit-product">
+                                        <input class = "gender" type="text" value = "<%=account.getGender()%>" hidden>
+                                        <input class = "address" type="text" value = "<%=account.getAddress()%>" hidden>
+
+                                        <button class="btn btn-warning btn-circle btn-sm" data-toggle="modal" data-target = "#edit-account" data-id ="1">
                                             <i class="fas fa-file-alt text-white"></i>
                                         </button>
 
-                                        <button class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target = "#delete-product">
+                                        <button class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target = "#delete-account">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
 
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
+                                <%
+                                    }
+                                %>
 
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
 
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td>Thường Bro</td>
-                                    <td>thuongnguyen.it78@gmail.com</td>
-                                    <td>0702626056</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </a>
-
-                                        <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -621,7 +426,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel11">Ready to Leave?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -635,8 +440,8 @@
     </div>
 </div>
 
-<!-- Add Product Modal  -->
-<div class="modal fade" id="add-product" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Add Account Modal  -->
+<div class="modal fade" id="add-account" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
     <div class="modal-dialog modal-size">
         <div class="modal-content">
             <div class="modal-header">
@@ -646,45 +451,46 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="user">
+                <form class="user" action = "/admin/account?type=add" method="POST">
+
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="fullname-form">Họ và tên</label>
-                            <input type="text" class="form-control form-control-user" id="fullname-form">
+                            <input type="text" class="form-control form-control-user" id="fullname-form" name = "fullname">
                         </div>
                         <div class="col-sm-6">
                             <label for="phone-form">Số điện thoại</label>
-                            <input type="text" class="form-control form-control-user" id="phone-form" >
+                            <input type="text" class="form-control form-control-user" id="phone-form" name = "phone">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email-form">Email</label>
-                        <input type="email" class="form-control form-control-user" id="email-form">
+                        <input type="email" class="form-control form-control-user" id="email-form" name = "email">
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="password-form">Mật khẩu</label>
-                            <input type="password" class="form-control form-control-user" id="password-form" >
+                            <input type="password" class="form-control form-control-user" id="password-form" name = "password">
                         </div>
                         <div class="col-sm-6">
                             <label for="repassword-form">Nhập lại mật khẩu</label>
-                            <input type="repassword-form" class="form-control form-control-user" id="repassword-form" >
+                            <input type="repassword-form" class="form-control form-control-user" id="repassword-form" name = "repassword">
                         </div>
                     </div>
 
 
                     <div class="form-group">
                         <label for="gender-form">Giới tính</label>
-                        <select class="form-control" id="gender-form">
-                            <option>Nam</option>
-                            <option>Nữ</option>
+                        <select class="form-control" id="gender-form" name = "gender">
+                            <option value="1">Nam</option>
+                            <option value="0">Nữ</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="address-form">Địa chỉ</label>
 
-                        <input type="address" class="form-control form-control-user" id="address-form" >
+                        <input type="address" class="form-control form-control-user" id="address-form" name = "address">
                     </div>
 
 
@@ -693,78 +499,80 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Thêm</button>
+                <button type="button" class="btn btn-primary" id = "btn-add-account">Thêm</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="edit-product" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<%--Edit Account Modal --%>
+<div class="modal fade" id="edit-account" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-size">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Cập nhật tài khoản</h5>
+                <h5 class="modal-title" id="staticBackdropLabel1">Cập nhật tài khoản</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="user">
+                <form class="user" action = "/admin/account?type=update" method="POST" enctype="multipart/form-data">
+                    <input type="text" name = "id" hidden>
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="fullname-form1">Họ và tên</label>
-                            <input type="text" class="form-control form-control-user" id="fullname-form1">
+                            <input type="text" class="form-control form-control-user" id="fullname-form1" name = "fullname">
                         </div>
                         <div class="col-sm-6">
                             <label for="phone-form1">Số điện thoại</label>
-                            <input type="text" class="form-control form-control-user" id="phone-form1" >
+                            <input type="text" class="form-control form-control-user" id="phone-form1" name = "phone">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email-form1">Email</label>
-                        <input type="email" class="form-control form-control-user" id="email-form1">
+                        <input type="email" class="form-control form-control-user" id="email-form1" name = "email">
                     </div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="password-form1">Mật khẩu</label>
-                            <input type="password" class="form-control form-control-user" id="password-form1" >
+                            <input type="password" class="form-control form-control-user" id="password-form1" name = "password">
                         </div>
                         <div class="col-sm-6">
                             <label for="repassword-form1">Nhập lại mật khẩu</label>
-                            <input type="repassword-form" class="form-control form-control-user" id="repassword-form1" >
+                            <input type="repassword-form" class="form-control form-control-user" id="repassword-form1" name = "repassword">
                         </div>
-                    </div>
+                    </div> -->
 
 
                     <div class="form-group">
                         <label for="gender-form1">Giới tính</label>
-                        <select class="form-control" id="gender-form1">
-                            <option>Nam</option>
-                            <option>Nữ</option>
+                        <select class="form-control" id="gender-form1" name = "gender">
+                            <option value = "1">Nam</option>
+                            <option value = "0">Nữ</option>
                         </select>
                     </div>
 
 
                     <div class="form-group">
                         <label for="file-form1">Avatar</label>
-                        <input type="file" class="form-control-file" id="file-form1">
+                        <input type="file" class="form-control-file" id="file-form1" name = "avatar">
                     </div>
 
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="active-form1">Active</label>
-                            <input type="number" class="form-control form-control-user" id="active-form1" >
+                            <input type="number" class="form-control form-control-user" id="active-form1" name = "active">
                         </div>
                         <div class="col-sm-6">
                             <label for="role-form1">Role</label>
-                            <input type="number" class="form-control form-control-user" id="role-form1" >
+                            <input type="number" class="form-control form-control-user" id="role-form1" name = "role">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="address-form1">Địa chỉ</label>
 
-                        <input type="address" class="form-control form-control-user" id="address-form1" >
+                        <input type="address" class="form-control form-control-user" id="address-form1" name = "address">
                     </div>
 
 
@@ -773,14 +581,14 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Cập nhật</button>
+                <button type="button" class="btn btn-primary" id = "btn-edit-account">Cập nhật</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Delete Account Modal -->
+<div class="modal fade" id="delete-account" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -790,11 +598,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                Bạn có chắc chắn xóa?
+                <span>Bạn có chắc chắn xóa <b></b></span>
+
+                <form action="/admin/account?type=delete" method="POST" hidden>
+                    <input type="text" name = "id">
+                </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Xóa</button>
+                <button type="button" class="btn btn-primary" id ="btn-delete-account">Xóa</button>
             </div>
         </div>
     </div>
@@ -816,6 +629,10 @@
 
 <!-- Page level custom scripts -->
 <script src="/resources/admin/js/demo/datatables-demo.js"></script>
+
+<%--Account admin scripts --%>
+<script src="/resources/admin/js/demo/account-admin.js"></script>
+
 
 </body>
 

@@ -12,10 +12,10 @@ public class AccountDAO {
     }
 
     // get all account
-    public ArrayList<Account> getAccounts() {
+    public static ArrayList<Account> getAccounts() {
         ArrayList<Account> listAccount = new ArrayList<Account>();
 
-        String query = "select * from accounts";
+        String query = "select * from accounts where account_isDelete = 0";
         Connection connect = null;
         Statement stmt = null;
         try {
@@ -32,6 +32,8 @@ public class AccountDAO {
                 String address = rs.getString(7);
                 String avatar = rs.getString(8);
                 int role = Integer.parseInt(rs.getString(9));
+                rs.getString(10);
+                int active = Integer.parseInt(rs.getString(11));
 
                 Account account = new Account();
                 account.setId(id);
@@ -42,7 +44,10 @@ public class AccountDAO {
                 account.setGender(gender);
                 account.setAddress(address);
                 account.setAvatar(avatar);
+                account.setActive(active);
                 account.setRole(role);
+                account.setActive(active);
+
 
                 listAccount.add(account);
             }
@@ -405,7 +410,7 @@ public class AccountDAO {
         Account account = (Account) obj;
 
         String query = "update accounts set account_fullname = ?, " +
-                "account_password = ?, account_address = ?, account_gender = ?," +
+                "account_address = ?, account_gender = ?," +
                 "account_avatar = ?, account_number = ?, account_role = ? where account_id = ?";
         Connection connect = null;
         PreparedStatement pstmt = null;
@@ -413,13 +418,12 @@ public class AccountDAO {
             connect = ConnectDB.getConnection();
             pstmt = connect.prepareStatement(query);
             pstmt.setString(1, account.getFullName());
-            pstmt.setString(2, account.getPassword());
-            pstmt.setString(3, account.getAddress());
-            pstmt.setInt(4, account.getGender());
-            pstmt.setString(5, account.getAvatar());
-            pstmt.setString(6, account.getNumber());
-            pstmt.setInt(7, account.getRole());
-            pstmt.setInt(8, account.getId());
+            pstmt.setString(2, account.getAddress());
+            pstmt.setInt(3, account.getGender());
+            pstmt.setString(4, account.getAvatar());
+            pstmt.setString(5, account.getNumber());
+            pstmt.setInt(6, account.getRole());
+            pstmt.setInt(7, account.getId());
 
             pstmt.executeUpdate();
 

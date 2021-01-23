@@ -11,14 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.*;
+import java.util.ArrayList;
 
 @MultipartConfig()
-@WebServlet("/admin/user")
+@WebServlet("/admin/account")
 public class AccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         // get type to recognize add, update or delete
         String type = (String) req.getParameter("type");
         PrintWriter out = res.getWriter();
+        System.out.println(type);
 
         // check condition
         if(type == null) {
@@ -31,17 +33,33 @@ public class AccountServlet extends HttpServlet {
             return;
         }
 
-        // get value
-        int id = Integer.parseInt(req.getParameter("id"));
+
+
+        // control when type equal delete
+        if(type.equals("delete")) {
+            // get value
+            int id = Integer.parseInt(req.getParameter("id"));
+
+            if(AccountDAO.deleteSort(id)) {
+                out.println("OK");
+                out.flush();
+                return;
+            }
+            out.println("NOT OK");
+            out.flush();
+            return;
+        }
+
         String fullname = req.getParameter("fullname");
-        String number = req.getParameter("number");
+        String number = req.getParameter("phone");
         String email = req.getParameter("email");
-        String password = req.getParameter("password");
         int gender = Integer.parseInt(req.getParameter("gender"));
         String address = req.getParameter("address");
 
         // control when type equal add
         if(type.equals("add")) {
+            String password = req.getParameter("password");
+
             Account account = new Account();
             account.setEmail(email);
             account.setPassword(password);
@@ -64,6 +82,8 @@ public class AccountServlet extends HttpServlet {
         // control when type equal update
         if(type.equals("update")) {
             try {
+                // get value
+                int id = Integer.parseInt(req.getParameter("id"));
                 int role = Integer.parseInt(req.getParameter("role"));
 
                 // upload file
@@ -78,7 +98,6 @@ public class AccountServlet extends HttpServlet {
                 Account account = new Account();
                 account.setId(id);
                 account.setEmail(email);
-                account.setPassword(password);
                 account.setFullName(fullname);
                 account.setNumber(number);
                 account.setGender(gender);
@@ -109,17 +128,7 @@ public class AccountServlet extends HttpServlet {
 
         }
 
-        // control when type equal delete
-        if(type.equals("delete")) {
-            if(AccountDAO.deleteSort(id)) {
-                out.println("OK");
-                out.flush();
-                return;
-            }
-            out.println("NOT OK");
-            out.flush();
-            return;
-        }
+
 
        res.sendRedirect("/view/404.jsp");
 
@@ -127,6 +136,8 @@ public class AccountServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        ArrayList<Account> listAccount = AccountDAO.getAccounts();
+        req.setAttribute("list-account", listAccount);
         req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
 
     }
