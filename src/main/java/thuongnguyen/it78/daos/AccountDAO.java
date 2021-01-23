@@ -11,7 +11,7 @@ public class AccountDAO {
 
     }
 
-    // get all accounts
+    // get all account
     public ArrayList<Account> getAccounts() {
         ArrayList<Account> listAccount = new ArrayList<Account>();
 
@@ -261,7 +261,7 @@ public class AccountDAO {
     }
 
     
-    public boolean create(Object obj) {
+    public static boolean create(Object obj) {
         Account account = (Account) obj;
         String query ="insert accounts (account_email, account_password," +
                 " account_fullname, account_number, account_gender, " +
@@ -398,6 +398,69 @@ public class AccountDAO {
         }
         return false;
     }
+
+    // ADMIN
+
+    public static boolean updateForAdmin(Object obj) {
+        Account account = (Account) obj;
+
+        String query = "update accounts set account_fullname = ?, " +
+                "account_password = ?, account_address = ?, account_gender = ?," +
+                "account_avatar = ?, account_number = ?, account_role = ? where account_id = ?";
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setString(1, account.getFullName());
+            pstmt.setString(2, account.getPassword());
+            pstmt.setString(3, account.getAddress());
+            pstmt.setInt(4, account.getGender());
+            pstmt.setString(5, account.getAvatar());
+            pstmt.setString(6, account.getNumber());
+            pstmt.setInt(7, account.getRole());
+            pstmt.setInt(8, account.getId());
+
+            pstmt.executeUpdate();
+
+            // clean up environment
+            pstmt.close();
+            connect.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean deleteSort(int id) {
+
+        String query = "update accounts set account_isDelete = 1 where account_id = ?";
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+
+            // clean up environment
+            pstmt.close();
+            connect.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+
+    }
+
 
 
 

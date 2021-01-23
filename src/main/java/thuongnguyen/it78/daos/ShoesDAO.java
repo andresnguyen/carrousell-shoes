@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ShoesDAO {
+
     public ShoesDAO() {
 
     }
@@ -286,6 +287,55 @@ public class ShoesDAO {
         }
 
         return listShoes;
+    }
+
+    // ADMIN
+    // create
+    public static boolean createShoes(Shoes shoes) {
+
+        String query = "insert into shoes(shoes_name, shoes_description, shoes_gender, shoes_image, category_id) values(?, ?, ?, ?, ?)";
+        String query1 = "insert into shoes_details(shoes_details_price, shoes_details_stock, shoes_details_color, size_id, shoes_id) " +
+                "values(?, ?, ?, ?, ?)";
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+        PreparedStatement pstmt1 = null;
+
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setString(1, shoes.getName());
+            pstmt.setString(2, shoes.getDescription());
+            pstmt.setInt(3, shoes.getType());
+            pstmt.setString(4, shoes.getImage());
+            pstmt.setInt(5, shoes.getCategoryID());
+            pstmt.executeUpdate();
+
+            // clean up environment
+            pstmt.close();
+
+            pstmt1 = connect.prepareStatement(query);
+            pstmt1.setDouble(1, shoes.getPrice());
+            pstmt1.setInt(2, shoes.getStock());
+            pstmt1.setString(3, shoes.getColor());
+            // pstmt1.setInt(4, shoes.getShoesID);
+            // pstmt1.setInt(5, shoes.getSize());
+
+            pstmt1.executeUpdate();
+            pstmt1.close();
+            connect.close();
+
+            return true;
+
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 }

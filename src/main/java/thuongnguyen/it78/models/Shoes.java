@@ -14,6 +14,8 @@ public class Shoes implements Serializable {
     private int stock;
     private String color;
     private String size;
+    private int active;
+    private int categoryID;
 
     public Shoes() {
     }
@@ -92,6 +94,22 @@ public class Shoes implements Serializable {
 
     public String getCategoryName() {
         return ShoesDAO.getCategoryByShoesID(this.id);
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+    public int getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
 
     @Override

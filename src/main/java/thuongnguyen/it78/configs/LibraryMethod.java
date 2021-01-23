@@ -2,6 +2,7 @@ package thuongnguyen.it78.configs;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import javax.servlet.http.Part;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
