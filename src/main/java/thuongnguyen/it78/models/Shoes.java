@@ -108,6 +108,13 @@ public class Shoes implements Serializable {
         return categoryID;
     }
 
+    public int getSizeInt() {
+        if(size.equals("39")) return 1;
+        if(size.equals("40")) return 2;
+        if(size.equals("41")) return 3;
+        else return 4;
+    }
+
     public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }

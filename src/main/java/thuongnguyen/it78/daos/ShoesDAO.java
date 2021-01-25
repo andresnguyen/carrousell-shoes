@@ -309,6 +309,7 @@ public class ShoesDAO {
             pstmt.setInt(3, shoes.getType());
             pstmt.setString(4, shoes.getImage());
             pstmt.setInt(5, shoes.getCategoryID());
+
             pstmt.executeUpdate();
 
             // clean up environment
@@ -318,8 +319,8 @@ public class ShoesDAO {
             pstmt1.setDouble(1, shoes.getPrice());
             pstmt1.setInt(2, shoes.getStock());
             pstmt1.setString(3, shoes.getColor());
-            // pstmt1.setInt(4, shoes.getShoesID);
-            // pstmt1.setInt(5, shoes.getSize());
+            pstmt1.setInt(4, shoes.getSizeInt());
+            pstmt1.setInt(5, getColumnBig() + 1);
 
             pstmt1.executeUpdate();
             pstmt1.close();
@@ -336,6 +337,163 @@ public class ShoesDAO {
         }
 
         return false;
+    }
+
+
+    public static boolean deleteShoes(int shoesDetailID) {
+        String query = "update shoes_details set shoes_detail_idDelete = 1 where shoes_detail_id = ?";
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setInt(1, shoesDetailID);
+            pstmt.executeUpdate();
+
+
+
+            pstmt.executeUpdate();
+            pstmt.close();
+            connect.close();
+
+            return true;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
+
+    public static boolean updateShoes(Shoes shoes) {
+
+        String query = "update shoes set shoes_name = ?, shoes_description = ?, category_id = ? where shoes_id = " + getShoesIDbyShoesDetailID(shoes.getId());
+        String query1 = "update shoes_details set shoes_detail_color = ?, shoes_detail_price = ?, shoes_detail_stock = ?, shoes_detail_active = ? where shoes_detail_id = ?";
+
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setString(1, shoes.getName());
+            pstmt.setString(2, shoes.getDescription());
+            pstmt.setInt(3, shoes.getCategoryID());
+            pstmt.executeUpdate();
+
+            // clean up environment
+            pstmt.close();
+
+            pstmt = connect.prepareStatement(query1);
+            pstmt.setString(1, shoes.getColor());
+            pstmt.setDouble(2, shoes.getPrice());
+            pstmt.setInt(3, shoes.getStock());
+            pstmt.setInt(4, shoes.getActive());
+            pstmt.setInt(5, shoes.getId());
+
+
+            pstmt.executeUpdate();
+            pstmt.close();
+            connect.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public static int getShoesIDbyShoesDetailID(int shoesDetailID) {
+        String query = "select shoes_id from shoes_details where shoes_details.shoes_detail_id = ?";
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+
+        int result;
+
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setInt(1, shoesDetailID);
+
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+
+
+            rs.close();
+            pstmt.close();
+            connect.close();
+
+            return result;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static int getColumnBig() {
+        String query = "select shoes_id from shoes order by shoes_id desc";
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+
+        int result;
+
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+
+
+            rs.close();
+            pstmt.close();
+            connect.close();
+
+            return result;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+
+
+
+    public static void main(String[] args) {
+        Shoes shoes = new Shoes();
+        shoes.setId(1);
+        shoes.setName("DEMO");
+        shoes.setActive(0);
+        shoes.setColor("LOVEYOU3000");
+        shoes.setStock(0);
+        shoes.setDescription("LOVEYOU3000 time 2");
+        shoes.setPrice(100);
+        shoes.setSize("39");
+        shoes.setImage("URL IMAGE");
+        shoes.setType(1);
+        shoes.setCategoryID(2);
+
+        System.out.println(createShoes(shoes));
+
+
+        int category = 6;
+
+        // ShoesDAO.updateShoes(shoes);
+        // System.out.println(ShoesDAO.getShoesIDbyShoesDetailID(5));
+        // System.out.println(ShoesDAO.getColumnBig());
     }
 
 }
