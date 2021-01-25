@@ -6,57 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94337ab3-8755-434c-83b1-43b0e6ec19e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CarrousellShoes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CarrousellShoes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/BannerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/BannerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/InsertBannerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/InsertBannerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/UpdateBannerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/UpdateBannerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/LoginFacebookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/LoginFacebookServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/ConnectDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/ConnectDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb/RestFB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb/RestFB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin/scss/_navs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/admin/scss/_navs.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin/scss/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/admin/scss/_utilities.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin/scss/sb-admin-2.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/admin/scss/sb-admin-2.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/admin/banner.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/banner.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/api/CartServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/api/CartServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/api/PaginationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/api/PaginationServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/configs/JavaMail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/configs/JavaMail$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/configs/JavaMail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/configs/JavaMail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/configs/LibraryMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/configs/LibraryMethod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/CartServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/CartServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/InfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/InfoServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/LoginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/PasswordServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/PasswordServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/ProductServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/RegisterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/AccountDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/AccountDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/ConnectDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/ConnectDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/ShoesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/ShoesDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/filter/ServiceFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/filter/ServiceFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/CarrousellShoes.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/api/CartServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/api/CartServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/api/PaginationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/api/PaginationServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/configs/JavaMail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/configs/JavaMail$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/configs/JavaMail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/configs/JavaMail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/configs/LibraryMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/configs/LibraryMethod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/CartServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/CartServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/InfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/InfoServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/LoginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/PasswordServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/PasswordServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/ProductServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/RegisterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/AccountDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/AccountDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/ConnectDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/ConnectDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/ShoesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/ShoesDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/filter/ServiceFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/filter/ServiceFilter.class" afterDir="false" />
-    </list>
+    <list default="true" id="94337ab3-8755-434c-83b1-43b0e6ec19e9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +260,7 @@
       <workItem from="1611212231501" duration="2426000" />
       <workItem from="1611286067821" duration="7790000" />
       <workItem from="1611495749097" duration="5418000" />
-      <workItem from="1611548598079" duration="19294000" />
+      <workItem from="1611548598079" duration="19533000" />
     </task>
     <servers />
   </component>
