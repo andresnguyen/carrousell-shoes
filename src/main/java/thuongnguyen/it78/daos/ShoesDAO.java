@@ -291,15 +291,21 @@ public class ShoesDAO {
 
     // ADMIN
     // create
-    public static boolean createShoes(Shoes shoes) {
+    public static boolean createShoes(Shoes shoes, int size1, int size2, int size3, int size4,
+                                      double price1, double price2, double price3, double price4,
+                                      int stock1, int stock2, int stock3, int stock4) {
 
-        String query = "insert into shoes(shoes_name, shoes_description, shoes_gender, shoes_image, category_id) values(?, ?, ?, ?, ?)";
-        String query1 = "insert into shoes_details(shoes_details_price, shoes_details_stock, shoes_details_color, size_id, shoes_id) " +
-                "values(?, ?, ?, ?, ?)";
+        String query = "insert into shoes (shoes_name, shoes_description, shoes_gender, shoes_image, category_id) values(?, ?, ?, ?, ?)";
+        String query1 = "insert into shoes_details (shoes_detail_color, shoes_id, size_id, shoes_detail_price, shoes_detail_stock) " +
+                "values(?, ?, ?, ?, ?)," +
+                "(?, ?, ?, ?, ?)," +
+                "(?, ?, ?, ?, ?)," +
+                "(?, ?, ?, ?, ?)";
 
-        Connection connect = null;
+
+
+                Connection connect = null;
         PreparedStatement pstmt = null;
-        PreparedStatement pstmt1 = null;
 
         try {
             connect = ConnectDB.getConnection();
@@ -314,22 +320,41 @@ public class ShoesDAO {
 
             // clean up environment
             pstmt.close();
+            connect.close();
 
-            pstmt1 = connect.prepareStatement(query);
-            pstmt1.setDouble(1, shoes.getPrice());
-            pstmt1.setInt(2, shoes.getStock());
-            pstmt1.setString(3, shoes.getColor());
-            pstmt1.setInt(4, shoes.getSizeInt());
-            pstmt1.setInt(5, getColumnBig() + 1);
+            int shoesIDInsert = getColumnBig();
 
-            pstmt1.executeUpdate();
-            pstmt1.close();
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query1);
+            pstmt.setString(1, shoes.getColor());
+            pstmt.setInt(2, shoesIDInsert);
+            pstmt.setInt(3, size1);
+            pstmt.setDouble(4, price1);
+            pstmt.setInt(5, stock1);
+
+            pstmt.setString(6, shoes.getColor());
+            pstmt.setInt(7, shoesIDInsert);
+            pstmt.setInt(8, size2);
+            pstmt.setDouble(9, price2);
+            pstmt.setInt(10, stock2);
+
+            pstmt.setString(11, shoes.getColor());
+            pstmt.setInt(12, shoesIDInsert);
+            pstmt.setInt(13, size3);
+            pstmt.setDouble(14, price3);
+            pstmt.setInt(15, stock3);
+
+            pstmt.setString(16, shoes.getColor());
+            pstmt.setInt(17, shoesIDInsert);
+            pstmt.setInt(18, size4);
+            pstmt.setDouble(19, price4);
+            pstmt.setInt(20, stock4);
+
+            pstmt.executeUpdate();
+            pstmt.close();
             connect.close();
 
             return true;
-
-
-
 
 
         } catch (SQLException e) {
@@ -341,7 +366,7 @@ public class ShoesDAO {
 
 
     public static boolean deleteShoes(int shoesDetailID) {
-        String query = "update shoes_details set shoes_detail_idDelete = 1 where shoes_detail_id = ?";
+        String query = "update shoes_details set shoes_detail_isDelete = 1 where shoes_detail_id = ?";
 
         Connection connect = null;
         PreparedStatement pstmt = null;
@@ -368,6 +393,7 @@ public class ShoesDAO {
         return false;
 
     }
+
 
     public static boolean updateShoes(Shoes shoes) {
 
@@ -412,7 +438,7 @@ public class ShoesDAO {
 
     public static int getShoesIDbyShoesDetailID(int shoesDetailID) {
         String query = "select shoes_id from shoes_details where shoes_details.shoes_detail_id = ?";
-
+        System.out.println(shoesDetailID);
         Connection connect = null;
         PreparedStatement pstmt = null;
 
@@ -470,6 +496,62 @@ public class ShoesDAO {
     }
 
 
+    // lấy một list shoes detail theo giới tính
+    public static ArrayList<Shoes> getAllShoesDetail() {
+        ArrayList<Shoes> listShoes = new ArrayList<Shoes>();
+
+        String query = "select s.shoes_name, s.shoes_description, s.shoes_gender, s.shoes_image, s.category_id, sd.shoes_detail_id," +
+                "sd.shoes_detail_price, sd.shoes_detail_stock, sd.shoes_detail_active, sd.shoes_detail_color, " +
+                "sd.size_id from shoes as s, shoes_details as sd where s.shoes_id = sd.shoes_id and sd.shoes_detail_isDelete = 0";
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            ResultSet rs =  pstmt.executeQuery();
+            while(rs.next()) {
+                String shoesName = rs.getString(1);
+                String shoesDescription = rs.getString(2);
+                int shoesGender = rs.getInt(3);
+                String shoesImage = rs.getString(4);
+                int shoesCategory = rs.getInt(5);
+                int shoesID = rs.getInt(6);
+                double shoesPrice = rs.getDouble(7);
+                int shoesStock = rs.getInt(8);
+                int shoesActive = rs.getInt(9);
+                String shoesColor = rs.getString(10);
+                int shoesSize = rs.getInt(11);
+
+                Shoes shoes = new Shoes();
+
+                shoes.setId(shoesID);
+                shoes.setName(shoesName);
+                shoes.setImage(shoesImage);
+                shoes.setPrice(shoesPrice);
+                shoes.setColor(shoesColor);
+                shoes.setDescription(shoesDescription);
+                shoes.setType(shoesGender);
+                shoes.setStock(shoesStock);
+                shoes.setSize(String.valueOf(shoesSize));
+                shoes.setActive(shoesActive);
+                shoes.setCategoryID(shoesCategory);
+
+
+                listShoes.add(shoes);
+            }
+            // clean up environment
+            rs.close();
+            pstmt.close();
+            connect.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listShoes;
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -481,12 +563,13 @@ public class ShoesDAO {
         shoes.setStock(0);
         shoes.setDescription("LOVEYOU3000 time 2");
         shoes.setPrice(100);
-        shoes.setSize("39");
+        shoes.setSize("42");
         shoes.setImage("URL IMAGE");
         shoes.setType(1);
         shoes.setCategoryID(2);
 
-        System.out.println(createShoes(shoes));
+        // System.out.println(createShoes(shoes));
+        System.out.println(getAllShoesDetail().toString());
 
 
         int category = 6;

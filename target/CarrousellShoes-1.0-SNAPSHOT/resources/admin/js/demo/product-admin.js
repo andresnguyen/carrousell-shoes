@@ -33,7 +33,7 @@ $('#delete-product').on('show.bs.modal', function (event) {
 
     // add event when button click so will submit form delete
     button.addEventListener('click', (e) => {
-        //form.submit()
+        form.submit()
         console.log("form submited");
     })
 

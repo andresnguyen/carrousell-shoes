@@ -1,5 +1,6 @@
 package thuongnguyen.it78.controllers.admin;
 
+import thuongnguyen.it78.configs.LibraryMethod;
 import thuongnguyen.it78.daos.ShoesDAO;
 import thuongnguyen.it78.models.Shoes;
 
@@ -44,8 +45,8 @@ public class ProductAServlet extends HttpServlet {
                 return;
             }
             int id = Integer.parseInt(req.getParameter("id"));
-            //ShoesDAO.deleteShoesForAdmin(id);
-            out.println("DELETE");
+            ShoesDAO.deleteShoes(id);
+            out.println("OK");
             return;
         }
 
@@ -78,7 +79,7 @@ public class ProductAServlet extends HttpServlet {
                 }
                 String img = "";
 
-                String path = getServletContext().getRealPath("/resources/img/avatar/");
+                String path = getServletContext().getRealPath("/resources/img/img/");
 
                 String fileName1 = part1.getSubmittedFileName();
                 img += "/img/" + fileName1;
@@ -96,23 +97,23 @@ public class ProductAServlet extends HttpServlet {
                 img += ",/img/" + fileName4;
                 part4.write(path + "/" + fileName4);
 
+            System.out.println(img);
+                // control size
 
-            // control size
-
-                String size1 = req.getParameter("size1");
-                Double price1 = Double.parseDouble(req.getParameter("size1"));
+                int size1 = LibraryMethod.getSizeInt(req.getParameter("size1"));
+                Double price1 = Double.parseDouble(req.getParameter("price1"));
                 int stock1 = Integer.parseInt(req.getParameter("quantity1"));
 
-                String size2 = req.getParameter("size2");
-                Double price2 = Double.parseDouble(req.getParameter("size2"));
+                int size2 = LibraryMethod.getSizeInt(req.getParameter("size2"));
+                Double price2 = Double.parseDouble(req.getParameter("price2"));
                 int stock2 = Integer.parseInt(req.getParameter("quantity2"));
 
-                String size3 = req.getParameter("size3");
-                Double price3 = Double.parseDouble(req.getParameter("size3"));
+                int size3 = LibraryMethod.getSizeInt(req.getParameter("size3"));
+                Double price3 = Double.parseDouble(req.getParameter("price3"));
                 int stock3 = Integer.parseInt(req.getParameter("quantity3"));
 
-                String size4 = req.getParameter("size4");
-                Double price4 = Double.parseDouble(req.getParameter("size4"));
+                int size4 = LibraryMethod.getSizeInt(req.getParameter("size4"));
+                Double price4 = Double.parseDouble(req.getParameter("price4"));
                 int stock4 = Integer.parseInt(req.getParameter("quantity4"));
 
 
@@ -122,22 +123,26 @@ public class ProductAServlet extends HttpServlet {
             shoes.setDescription(description);
             shoes.setType(typeof);
             shoes.setImage(img);
+            shoes.setCategoryID(category);
 
-//            ShoesDAO.addShoesForAdmin(shoes, size1, size2, size3, size4,
-//                    price1, price2, price3, price4, stock1, size2, stock3, stock4, category);
+            System.out.println("" + size1 + size2 + size3 + size4 );
+
+            ShoesDAO.createShoes(shoes, size1, size2, size3, size4,
+                    price1, price2, price3, price4, stock1, size2, stock3, stock4);
             out.println("ADD");
             out.flush();
             return;
 
         }
         // control when type equal update
-        if(type.equals("update")) {
+
+        if(type.equals("edit")) {
             // declare common for add and update
             String name = req.getParameter("name");
             int category = Integer.parseInt(req.getParameter("category"));
             String color = req.getParameter("color");
-            int typeof = Integer.parseInt(req.getParameter("typeof"));
             String description = req.getParameter("description");
+            int id = Integer.parseInt(req.getParameter("id"));
 
             int active = Integer.parseInt(req.getParameter("active"));
             double price = Double.parseDouble(req.getParameter("price"));
@@ -145,6 +150,7 @@ public class ProductAServlet extends HttpServlet {
 
             Shoes shoes = new Shoes();
 
+            shoes.setId(id);
             shoes.setName(name);
             shoes.setColor(color);
             shoes.setDescription(description);
@@ -153,7 +159,7 @@ public class ProductAServlet extends HttpServlet {
             shoes.setActive(active);
             shoes.setCategoryID(category);
 
-         //   ShoesDAO.updateShoesForAdmin(shoes, category);
+            ShoesDAO.updateShoes(shoes);
             out.println("UPDATE");
             out.flush();
             return;
@@ -163,7 +169,8 @@ public class ProductAServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
+        ArrayList<Shoes> listShoes = ShoesDAO.getAllShoesDetail();
+        req.setAttribute("listShoes", listShoes);
         req.getRequestDispatcher("/views/product-admin.jsp").forward(req, res);
 
     }

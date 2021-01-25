@@ -75,6 +75,21 @@ public class LibraryMethod {
         return "Nữ";
     }
 
+    public static int getSizeInt(String size) {
+        if(size.equals("39")) return 1;
+        if(size.equals("40")) return 2;
+        if(size.equals("41")) return 3;
+        else return 4;
+    }
+
+    public static String getSizeString(String size) {
+        if(size.equals("1")) return "39";
+        if(size.equals("2")) return "40";
+        if(size.equals("3")) return "41";
+        return "42";
+
+    }
+
     public static void main(String[] args) {
         System.out.println(DigestUtils.md5Hex("123456"));
     }

@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="thuongnguyen.it78.models.Shoes" %>
+<%@ page import="thuongnguyen.it78.configs.LibraryMethod" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -375,23 +378,28 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
+                                <%
+                                    ArrayList<Shoes> listShoes = (ArrayList<Shoes>) request.getAttribute("listShoes");
+
+                                    for(Shoes shoes : listShoes) {
+                                %>
                                 <tr>
-                                    <td class = "id-td">1</td>
-                                    <td><img src="https://i.pinimg.com/736x/63/5a/59/635a5978ec17517a9fc24532ae5a7847.jpg" alt="Avatar"></td>
-                                    <td class = "name-td">BASAS SUEDE - LOW TOP - BLACK</td>
-                                    <td class = "type-td">Nam</td>
-                                    <td class = "size-td">40</td>
-                                    <td class = "price-td">400.000</td>
-                                    <td class = "stock-td">40</td>
-                                    <td class = "category-td">Vintas</td>
-                                    <td class = "active-td">1</td>
+                                    <td class = "id-td"><%=shoes.getId()%></td>
+                                    <td><img src="/resources/img<%=shoes.getImage().split(",")[0]%>" alt="Avatar"></td>
+                                    <td class = "name-td"><%=shoes.getName()%></td>
+                                    <td class = "type-td"><%=LibraryMethod.getGenderShoes(shoes.getType())%></td>
+                                    <td class = "size-td"><%=LibraryMethod.getSizeString(shoes.getSize())%></td>
+                                    <td class = "price-td"><%=String.format("%.0f", (double)shoes.getPrice())%></td>
+                                    <td class = "stock-td"><%=shoes.getStock()%></td>
+                                    <td class = "category-td"><%=shoes.getCategoryName()%></td>
+                                    <td class = "active-td"><%=shoes.getActive()%></td>
 
 
                                     <td class = "action-td">
-                                        <input type="text" value = "Description"class = "description-input" hidden>
-                                        <input type="text" value = "2" class = "category-input" hidden>
-                                        <input type="text" value = "BLACK" class = "color-input" hidden>
-                                        <input type="text" value = "1" class = "image-input" hidden>
+                                        <input type="text" value = "<%=shoes.getDescription()%>"class = "description-input" hidden>
+                                        <input type="text" value = "<%=shoes.getCategoryID()%>" class = "category-input" hidden>
+                                        <input type="text" value = "<%=shoes.getColor()%>" class = "color-input" hidden>
+                                        <input type="text" value = "<%=shoes.getImage()%>" class = "image-input" hidden>
 
 
 
@@ -404,6 +412,9 @@
                                         </button>
                                     </td>
                                 </tr>
+                                <%
+                                    }
+                                %>
 
 
                                 </tbody>
@@ -435,7 +446,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <h5 class="modal-title">Ready to Leave?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -454,7 +465,7 @@
     <div class="modal-dialog modal-size">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Thêm sản phẩm</h5>
+                <h5 class="modal-title">Thêm sản phẩm</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -495,17 +506,17 @@
 
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label for="price-form">Size</label>
-                            <input type="number" class="form-control form-control-user" value="39" disabled name = "size1">
+                            <label >Size</label>
+                            <input type="number" class="form-control form-control-user" value="39" name = "size1">
                         </div>
                         <div class="col-sm-4">
-                            <label for="price-form">Giá</label>
+                            <label >Giá</label>
                             <input type="number" class="form-control form-control-user" name = "price1">
 
                         </div>
 
                         <div class="col-sm-4">
-                            <label for="quantity-form">Số lượng</label>
+                            <label>Số lượng</label>
                             <input type="number" class="form-control form-control-user"  name = "quantity1">
 
                         </div>
@@ -513,7 +524,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="number" class="form-control form-control-user" value="40" disabled name = "size2">
+                            <input type="number" class="form-control form-control-user" value="40" name = "size2">
                         </div>
                         <div class="col-sm-4">
                             <input type="number" class="form-control form-control-user" name ="price2">
@@ -528,7 +539,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="number" class="form-control form-control-user" value="41" disabled name = "size3">
+                            <input type="number" class="form-control form-control-user" value="41" name = "size3">
                         </div>
                         <div class="col-sm-4">
                             <input type="number" class="form-control form-control-user" name = "price3">
@@ -543,7 +554,7 @@
 
                     <div class="form-group row">
                         <div class="col-sm-4 mb-3 mb-sm-0">
-                            <input type="number" class="form-control form-control-user" value="42" disabled name = "size4">
+                            <input type="number" class="form-control form-control-user" value="42" name = "size4">
                         </div>
                         <div class="col-sm-4">
                             <input type="number" class="form-control form-control-user" name = "price4">
@@ -638,23 +649,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="form-group row">
-                        <div class="col-sm-12 mb-3 mb-sm-0">
-                            <label for="price-form1">Giá</label>
-                            <input type="number" class="form-control form-control-user" id="price-form1" name ="price"/>
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="size-form1">Size</label>
-                            <select class="form-control size-select" id="size-form1" name = "size">
-                                <option value ="39">39</option>
-                                <option value ="40">40</option>
-                                <option value ="41">41</option>
-                                <option value ="42">42</option>
-
-                            </select>
-                        </div>
-                    </div> -->
-
                     <div class="form-group row">
                         <div class="col-sm-8 mb-3 mb-sm-0">
                             <label for="quantity-form1">Số lượng</label>
@@ -666,33 +660,10 @@
                         </div>
                     </div>
 
-                    <!-- <div class="form-group img">
-                        <label for="file-form11">Hình ảnh 1</label>
-                        <input type="file" class="form-control-file" id="file-form11" accept="image/jpeg, image/png, image/gif" name = "image1"/>
-                    </div>
-
-                    <div class="form-group img">
-                        <label for="file-form21">Hình ảnh 2</label>
-                        <input type="file" class="form-control-file" id="file-form21" accept="image/jpeg, image/png, image/gif" name = "image2"/>
-                    </div>
-
-                        <div class="form-group img">
-                        <label for="file-form31">Hình ảnh 3</label>
-                        <input type="file" class="form-control-file" id="file-form31" accept="image/jpeg, image/png, image/gif" name = "image3"/>
-                    </div>
-
-                    <div class="form-group img">
-                        <label for="file-form41">Hình ảnh 4</label>
-                        <input type="file" class="form-control-file" id="file-form41" accept="image/jpeg, image/png, image/gif" name = "image4"/>
-                    </div> -->
-
                     <div class="form-group">
                         <label for="description-form1">Mô tả</label>
                         <textarea  class="form-control form-control-user" id="description-form1" name = "description"></textarea>
                     </div>
-
-
-
 
                 </form>
             </div>
@@ -748,10 +719,6 @@
 <script src="/resources/admin/js/demo/datatables-demo.js"></script>
 
 <script src="/resources/admin/js/demo/product-admin.js"></script>
-
-
-
-
 
 
 </body>
