@@ -44,7 +44,7 @@
                         %>
 
                         <div class="form-group">
-                            <input type="email" name="email" class = "form-control" autofocus id="email" placeholder="Email"/
+                            <input type="email" name="email" class = "form-control" autofocus id="email" placeholder="Email"/>
                             <%
                                 if(request.getAttribute("email") != null) {
                             %>
@@ -52,7 +52,6 @@
                             <%
                                 }
                             %>
-                            >
                             <span class="form-message"></span>
                         </div>
                         <div class="input-icon form-group">
@@ -70,8 +69,10 @@
                                 <span class="social-share-text">Đăng nhập bằng Google</span>
                             </div>
                             <div class="social-share-item facebook">
+                                <a href="https://www.facebook.com/dialog/oauth?client_id=1881374855352430&redirect_uri=https://localhost:8090/login-facebook">
                                 <i class="fab fa-facebook social-share-icon"></i>
                                 <span class="social-share-text">Đăng nhập bằng Facebook</span>
+                                </a>
                             </div>
 
                         </div>

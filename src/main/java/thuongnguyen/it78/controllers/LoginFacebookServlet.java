@@ -1,17 +1,45 @@
+package thuongnguyen.it78.controllers;
+
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import com.restfb.types.User;
+import thuongnguyen.it78.loginfb.RestFB;
+import thuongnguyen.it78.models.Account;
 
-@javax.servlet.annotation.WebServlet(name = "LoginFacebookServlet")
-public class LoginFacebookServlet extends javax.servlet.http.HttpServlet {
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
-        doGet(repuest, response);
+@WebServlet("/login-facebook")
+public class LoginFacebookServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+    public LoginFacebookServlet() {
+        super();
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String code = request.getParameter("code");
+
+        if (code == null || code.isEmpty()) {
+            RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+            dis.forward(request, response);
+        } else {
+            Account account = new Account();
+            String accessToken = RestFB.getToken(code);
+            User user = RestFB.getUserInfo(accessToken);
+            request.setAttribute("id", user.getId());
+            request.setAttribute("name", user.getName());
+            account.setFullName(user.getName());
+            request.getSession().setAttribute("account", account);
+            RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+            dis.forward(request, response);
+        }
+
+    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
     }
 
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, java.io.IOException {
-
-    }
 }
