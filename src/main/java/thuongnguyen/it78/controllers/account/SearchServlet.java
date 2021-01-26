@@ -26,9 +26,13 @@ public class SearchServlet extends HttpServlet {
 
         // lấy ra biến search
         String search = req.getParameter("value");
+        int tmp = 1;
+        if(Math.random() > 0.5) {
+            tmp = 0;
+        }
 
         // lấy ra arraylist shoes
-        ArrayList<Shoes> listShoes = ShoesDAO.getListShoesByGender(1);
+        ArrayList<Shoes> listShoes = ShoesDAO.getListShoesByGender(tmp);
 
         System.out.println(listShoes);
 

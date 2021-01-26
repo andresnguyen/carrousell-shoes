@@ -2,7 +2,6 @@ package thuongnguyen.it78.controllers.account;
 
 import thuongnguyen.it78.daos.CheckOutDAO;
 import thuongnguyen.it78.models.Account;
-import thuongnguyen.it78.models.OrderDetail;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +19,12 @@ public class OrderDetailServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        // get account from session
         Account account = (Account) req.getSession().getAttribute("account");
+        // get order by account id
         req.setAttribute("order-me", CheckOutDAO.getListOrderOfAccount(account.getId()));
 
-        // mặc định thì shoesID = 1
+        // get params
         int shoesDetailID = 1;
 
         // nếu tham số gửi lên khác null thì gán lại shoesID

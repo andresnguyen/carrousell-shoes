@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.HashMap;
 
 
@@ -21,10 +20,19 @@ import java.util.HashMap;
 public class CheckOutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String note = req.getParameter("note");
+
+        if(note == null) {
+            note = "";
+        }
+        // get account from session
         Account accountLegal = (Account) req.getSession().getAttribute("account");
+
+        // get cart from session
         HashMap<Integer, OrderDetail> mapShoes = (HashMap) req.getSession().getAttribute("cart");
 
+        // checkout
         if(CheckOutDAO.checkOut(note, accountLegal.getId(), mapShoes)) {
+            // clear cart and asign to session cart
             mapShoes.clear();
             req.getSession().setAttribute("cart", mapShoes);
             res.sendRedirect("/me/order");

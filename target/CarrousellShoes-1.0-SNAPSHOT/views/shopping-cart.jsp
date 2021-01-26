@@ -94,82 +94,19 @@
                             <%
                                 }
                             %>
-<%--                            <tr>--%>
-<%--                                <td class="product__cart__item">--%>
-<%--                                    <div class="product__cart__item__pic">--%>
-<%--                                        <img src="/resources/img/shop/2.jpg" alt="">--%>
-<%--                                    </div>--%>
-<%--                                    <div class="product__cart__item__text">--%>
-<%--                                        <h6>Basas Bumper Gum - High Top</h6>--%>
-<%--                                        <p>OFFWHITE/GUM - 42</p>--%>
-<%--                                        <h5>490.000 VND</h5>--%>
-<%--                                    </div>--%>
-<%--                                </td>--%>
-<%--                                <td class="quantity__item">--%>
-<%--                                    <div class="quantity">--%>
-<%--                                        <div class="pro-qty-2">--%>
-<%--                                            <input type="text" value="1">--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </td>--%>
-<%--                                <td class="cart__price">580.000 VND</td>--%>
-<%--                                <td class="cart__close"><i class="fal fa-trash-alt"></i></td>--%>
-<%--                            </tr>--%>
-<%--                            <tr>--%>
-<%--                                <td class="product__cart__item">--%>
-<%--                                    <div class="product__cart__item__pic">--%>
-<%--                                        <img src="/resources/img/shop/3.jpg" alt="">--%>
-<%--                                    </div>--%>
-<%--                                    <div class="product__cart__item__text">--%>
-<%--                                        <h6>Basas Mono - Low Top--%>
-<%--                                        </h6>--%>
-<%--                                        <p>Dark Grey - 42</p>--%>
-<%--                                        <h5>450.000 VND</h5>--%>
-<%--                                    </div>--%>
-<%--                                </td>--%>
-<%--                                <td class="quantity__item">--%>
-<%--                                    <div class="quantity">--%>
-<%--                                        <div class="pro-qty-2">--%>
-<%--                                            <input type="text" value="1">--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </td>--%>
-<%--                                <td class="cart__price">500.000 VND</td>--%>
-<%--                                <td class="cart__close"><i class="fal fa-trash-alt"></i></td>--%>
-<%--                            </tr>--%>
-<%--                            <tr>--%>
-<%--                                <td class="product__cart__item">--%>
-<%--                                    <div class="product__cart__item__pic">--%>
-<%--                                        <img src="/resources/img/shop/4.jpg" alt="">--%>
-<%--                                    </div>--%>
-<%--                                    <div class="product__cart__item__text">--%>
-<%--                                        <h6>Basas Mono - Low Top</h6>--%>
-<%--                                        <p>Black Cool - 41</p>--%>
-<%--                                        <h5>580.000 VND</h5>--%>
-<%--                                    </div>--%>
-<%--                                </td>--%>
-<%--                                <td class="quantity__item">--%>
-<%--                                    <div class="quantity">--%>
-<%--                                        <div class="pro-qty-2">--%>
-<%--                                            <input type="text" value="1">--%>
-<%--                                        </div>--%>
-<%--                                    </div>--%>
-<%--                                </td>--%>
-<%--                                <td class="cart__price">700.000 VND</td>--%>
-<%--                                <td class="cart__close"><i class="fal fa-trash-alt"></i></td>--%>
-<%--                            </tr>--%>
+
                             </tbody>
                         </table>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn">
-                                <a href="#">Continue Shopping</a>
+                                <a href="#">Tiếp tục mua hàng</a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn update__btn">
-                                <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                                <a href="#"><i class="fa fa-spinner"></i> Cập nhật giỏ hàng</a>
                             </div>
                         </div>
                     </div>
@@ -185,14 +122,12 @@
                     <div class="cart__total">
                         <h6>ĐƠN HÀNG</h6>
                         <ul>
-                            <li>TẠM TÍNH <span>7.730.000 VND</span></li>
-                            <li>PHÍ GIAO HÀNG <span>30.000 VND</span></li>
-                            <li>GIẢM GIÁ <span>1.200.000 VND</span></li>
+
                             <li>TỔNG CỘNG<span>6.500.000 VND</span></li>
 
 
                         </ul>
-                        <a href="#" class="primary-btn">TIẾP TỤC THANH TOÁN</a>
+                        <a href="/me/checkout" class="primary-btn">TIẾP TỤC THANH TOÁN</a>
                     </div>
                 </div>
             </div>

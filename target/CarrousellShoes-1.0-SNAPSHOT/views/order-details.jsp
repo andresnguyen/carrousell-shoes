@@ -1,7 +1,5 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="thuongnguyen.it78.models.OrderDetail" %>
-<%@ page import="thuongnguyen.it78.models.Shoes" %>
-<%@ page import="thuongnguyen.it78.daos.ShoesDAO" %>
 <%@ page import="thuongnguyen.it78.configs.LibraryMethod" %>
 <%@ page import="thuongnguyen.it78.models.Order" %>
 <%@ page import="java.util.ArrayList" %>
@@ -14,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="thuongnguyen.it78 17130239 17130299 17130247">
 
-    <title>Shopping Cart</title>
+    <title>Chi Tiết Đơn Hàng</title>
 
     <%@include file="partials/css-link.jsp" %>
 

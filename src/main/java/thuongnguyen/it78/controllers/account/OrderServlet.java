@@ -21,7 +21,7 @@ public class OrderServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
+        // get account and set params
         Account account = (Account) req.getSession().getAttribute("account");
         req.setAttribute("order-me", CheckOutDAO.getListOrderOfAccount(account.getId()));
         req.getRequestDispatcher("/views/orders-me.jsp").forward(req, res);

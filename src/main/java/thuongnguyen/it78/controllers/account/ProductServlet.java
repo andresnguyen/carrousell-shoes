@@ -26,8 +26,6 @@ public class ProductServlet extends HttpServlet {
         // tạo ra một listShoes có id là shoesID
         ArrayList<Shoes> listShoes;
 
-
-
         // filter
 
         // mặc định của tất cả giá trị

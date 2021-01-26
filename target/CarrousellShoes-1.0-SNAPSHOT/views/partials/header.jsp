@@ -88,7 +88,7 @@
 
                                     <li class="header__navbar-user-item"><a href="/me/info">Tài khoản của tôi</a></li>
                                     <li class="header__navbar-user-item"><a href="/me/password">Đổi mật khẩu</a></li>
-                                    <li class="header__navbar-user-item"><a href="/me/cart">Đơn hàng</a></li>
+                                    <li class="header__navbar-user-item"><a href="/me/order">Đơn hàng</a></li>
                                     <li class="header__navbar-user-item header__navbar-user-item--separate"><a href="/me/logout">Đăng xuất</a></li>
 
                                 </ul>
@@ -143,20 +143,6 @@
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="/resources/img/icon/search.png" alt=""></a>
                     <a href="/contact-us"><img src="/resources/img/icon/heart.png" alt=""></a>
-                    <a href="/me/cart"><img src="/resources/img/icon/cart.png" alt=""><span>
-                        <%
-                            if(request.getSession().getAttribute("cart") != null)  {
-                                HashMap mapCartSize1 = (HashMap) request.getSession().getAttribute("cart");
-                        %>
-                                 <%=mapCartSize1.size()%>
-                        <%
-                        } else {
-                        %>
-                        0
-                        <%
-                            }
-                        %>
-                    </span></a>
                 </div>
             </div>
         </div>
