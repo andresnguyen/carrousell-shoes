@@ -218,4 +218,26 @@ public class CheckOutDAO {
         // System.out.println(getListOrder().toString());
         // System.out.println(getListOrderOfAccount(1).toString());
     }
+
+    public static boolean setStatus(int orderID, int status) {
+        String sql = "update orders set order_status = ? where order_id = ?";
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(sql);
+            pstmt.setInt(1, status);
+            pstmt.setInt(2, orderID);
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            connect.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

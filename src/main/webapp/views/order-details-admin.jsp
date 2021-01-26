@@ -15,6 +15,11 @@
     <title>Chi Tiết Đơn Hàng</title>
 
     <%@include file="partials/css-link.jsp" %>
+    <style>
+        .form-control {
+            width: 100%;
+        }
+    </style>
 
 </head>
 
@@ -48,7 +53,7 @@
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <div class="shopping__cart__table">
                         <table>
                             <thead>
@@ -117,11 +122,47 @@
                                 <td class="cart__price"><%=LibraryMethod.priceToString(total)%></td>
                             </tr>
 
+
+
                             </tbody>
                         </table>
                     </div>
 
                 </div>
+                <div class="col-lg-5">
+
+                    <div class="cart__total">
+                        <h6>THÔNG TIN ĐƠN HÀNG</h6>
+                        <ul>
+
+                            <li>Mã đơn hàng: <%=orderID%></li>
+                            <li>Người đặt hàng: <%=order.getAccount().getFullName()%></li>
+                            <li style="border-bottom: none">Số điện thoại: <%=order.getAccount().getNumber()%></li>
+                            <li style="font-weight: 400 ; padding: 0">Địa chỉ: <%=order.getAccount().getAddress()%></li>
+                            <li>Email: <%=order.getAccount().getEmail()%></li>
+                            <li>Ghi chú: <%=order.getOrderNote()%></li>
+                        </ul>
+
+                        <form action="/admin/order" method="post" id = "form-status">
+                            <div class = form-group>
+                                <label for="exampleFormControlSelect1" style="width: 100%">Cập nhật trạng thái: </label>
+                                <input value = "<%=orderID%>" name ="orderID" hidden>
+                                <select class="form-control" id="exampleFormControlSelect1" name = "status">
+                                    <option value = "1">Đang vận chuyển</option>
+                                    <option value = "2" >Đã hoàn tất</option>
+                                    <option value = "-1" >Từ chối</option>
+
+                                </select>
+                            </div>
+
+                        </form>
+                        <a href="/me/checkout" class="primary-btn" style="margin-top: 50px" id ="btn-update-status">CẬP NHẬT</a>
+
+                    </div>
+
+
+                </div>
+
             </div>
         </div>
     </section>
@@ -139,14 +180,27 @@
     <%@include file="partials/js-link.jsp" %>
     <script src="/resources/js/shopping-cart.js"></script>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', (e) => {
-            const elementsCountInput = document.querySelectorAll('.qtybtn')
-            for(element of elementsCountInput) {
-                element.remove()
-            }
-        });
-    </script>
+<script>
+    window.addEventListener('DOMContentLoaded', (e) => {
+        const elementsCountInput = document.querySelectorAll('.qtybtn')
+        for(element of elementsCountInput) {
+            element.remove()
+        }
+    });
+</script>
+
+<script>
+    const btnUpdateStatus = document.getElementById('btn-update-status')
+    const btnFormStatus = document.getElementById('form-status')
+
+    console.log(btnUpdateStatus, btnFormStatus)
+
+    btnUpdateStatus.addEventListener('click', () => {
+        btnFormStatus.submit()
+    })
+
+</script>
+
 
 
 </body>

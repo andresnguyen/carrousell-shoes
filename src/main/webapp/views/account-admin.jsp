@@ -12,6 +12,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="/resources/img/site/favicon.ico">
+    <link rel="stylesheet" href="/resources/css/style-404.css" type="text/css">
+
 
 
     <title>Quản Lý Tài Khoản</title>
@@ -46,7 +48,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/view">
             <div class="sidebar-brand-icon rotate-n-15">
             </div>
             <div class="sidebar-brand-text mx-3">Carroushoes</div>
@@ -57,7 +59,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/admin/view">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tổng Quan</span></a>
         </li>
@@ -73,21 +75,22 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="users.html">
+            <a class="nav-link" href="/admin/account">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 <span>Tài Khoản</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="/admin/account.html">
+            <a class="nav-link" href="/admin/product">
                 <i class="fas fa-calendar fa-fw mr-2 text-gray-400"></i>
                 <span>Sản phẩm</span></a>
         </li>
 
+
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="orders.html">
+            <a class="nav-link" href="/admin/order">
                 <i class="fas fa-fw fa-clipboard-list mr-2 text-gray-400"></i>
 
                 <span>Đơn hàng</span></a>
@@ -95,9 +98,16 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="banners.html">
+            <a class="nav-link" href="/admin/banner">
                 <i class="fas fa-fw fa-table  mr-2 text-gray-400"></i>
                 <span>Banner</span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/category">
+                <i class="fas fa-fw fa-table  mr-2 text-gray-400"></i>
+                <span>Category</span></a>
         </li>
 
         <!-- Divider -->

@@ -139,6 +139,14 @@
     <%@include file="partials/js-link.jsp" %>
     <script src="/resources/js/shopping-cart.js"></script>
 
+    <script>
+        window.addEventListener('DOMContentLoaded', (e) => {
+            const elementsCountInput = document.querySelectorAll('.qtybtn')
+            for(element of elementsCountInput) {
+                element.remove()
+            }
+        });
+    </script>
 
 
 </body>
