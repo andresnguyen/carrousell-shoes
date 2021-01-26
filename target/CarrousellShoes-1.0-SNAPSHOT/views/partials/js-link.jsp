@@ -1,5 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<script src="/resources/js/toast.js"></script>
 <script src="/resources/js/jquery-3.3.1.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/jquery.nice-select.min.js"></script>
@@ -12,4 +13,6 @@
 <script src="/resources/js/main.js"></script>
 <script src="/resources/js/js-optimization.js"></script>
 <script src="/resources/js/search-shoes.js"></script>
+
+
 

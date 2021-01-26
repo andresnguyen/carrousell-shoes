@@ -19,42 +19,61 @@ public class AccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         // get type to recognize add, update or delete
         String type = (String) req.getParameter("type");
-        PrintWriter out = res.getWriter();
-        System.out.println(type);
 
-        // check condition
-        if(type == null) {
-            res.sendRedirect("/views/404.jsp");
+        // set default
+        ArrayList<Account> listAccount;
+        req.setAttribute("flag", "error");
+
+
+
+        if(type == null || !type.matches("add|update|delete")) {
+            // set default
+            listAccount = AccountDAO.getAccounts();
+            req.setAttribute("list-account", listAccount);
+            req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
             return;
         }
-
-        if(!type.matches("add|update|delete")) {
-            res.sendRedirect("/views/404.jsp");
-            return;
-        }
-
-
 
         // control when type equal delete
         if(type.equals("delete")) {
-            // get value
-            int id = Integer.parseInt(req.getParameter("id"));
 
-            if(AccountDAO.deleteSort(id)) {
-                out.println("OK");
-                out.flush();
+            if(req.getParameter("id") == null) {
+                req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
                 return;
             }
-            out.println("NOT OK");
-            out.flush();
+
+            int id = Integer.parseInt(req.getParameter("id"));
+
+            if(!AccountDAO.deleteSort(id)) {
+                req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
+                return;
+            }
+
+            req.setAttribute("flag", "success");
+            // set default
+            listAccount = AccountDAO.getAccounts();
+            req.setAttribute("list-account", listAccount);
+            req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
             return;
         }
 
+        // common params
         String fullname = req.getParameter("fullname");
         String number = req.getParameter("phone");
         String email = req.getParameter("email");
-        int gender = Integer.parseInt(req.getParameter("gender"));
+        String genderString = req.getParameter("gender");
         String address = req.getParameter("address");
+
+        // check if error
+        if(fullname == null || number == null || email == null || genderString == null || address == null) {
+            // set default
+            listAccount = AccountDAO.getAccounts();
+            req.setAttribute("list-account", listAccount);
+            req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
+            return;
+        }
+
+        int gender = Integer.parseInt(genderString);
 
         // control when type equal add
         if(type.equals("add")) {
@@ -69,22 +88,32 @@ public class AccountServlet extends HttpServlet {
             account.setAddress(address);
 
             if(!AccountDAO.create(account)) {
-                // fail
-                out.println("FALSE");
-                out.flush();
+                req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
                 return;
             }
-            // success
-            out.println("OK");
-            out.flush();
+            // set default
+            listAccount = AccountDAO.getAccounts();
+            req.setAttribute("list-account", listAccount);
+            req.setAttribute("flag", "success");
+            req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
             return;
         }
         // control when type equal update
         if(type.equals("update")) {
             try {
                 // get value
+                if(req.getParameter("id") == null ||
+                   req.getParameter("role") == null ||
+                   req.getPart("avatar") == null) {
+
+                    listAccount = AccountDAO.getAccounts();
+                    req.setAttribute("list-account", listAccount);
+                    req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
+                    return;
+                }
                 int id = Integer.parseInt(req.getParameter("id"));
                 int role = Integer.parseInt(req.getParameter("role"));
+
 
                 // upload file
                 Part part = req.getPart("avatar");
@@ -105,33 +134,27 @@ public class AccountServlet extends HttpServlet {
                 account.setAvatar(fileName);
                 account.setRole(role);
 
-                if(!AccountDAO.updateForAdmin(account)) {
-                    // update fail
-                    out.println("FALSE");
-                    out.flush();
+                if(part == null || !AccountDAO.updateForAdmin(account)) {
+                    // set default
+                    listAccount = AccountDAO.getAccounts();
+                    req.setAttribute("list-account", listAccount);
+                    req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
                     return;
                 }
-
-                out.println("OK");
-                out.flush();
-                // update success
-
-
-
+                // set default
+                listAccount = AccountDAO.getAccounts();
+                req.setAttribute("list-account", listAccount);
+                req.setAttribute("flag", "success");
+                req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
                 return;
 
             } catch (Exception e) {
                 e.printStackTrace();
-                res.sendRedirect("/view/404.jsp");
+                res.sendRedirect("/views/404.jsp");
                 return;
             }
 
         }
-
-
-
-       res.sendRedirect("/view/404.jsp");
-
 
     }
 

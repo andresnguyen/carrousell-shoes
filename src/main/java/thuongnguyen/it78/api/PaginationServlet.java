@@ -25,8 +25,6 @@ public class PaginationServlet extends HttpServlet {
         // tạo ra một listShoes có id là shoesID
         ArrayList<Shoes> listShoes;
 
-
-
         // filter
 
         // mặc định của tất cả giá trị
@@ -69,8 +67,6 @@ public class PaginationServlet extends HttpServlet {
         int start = (page - 1) * limit;
 
         listShoes = ShoesDAO.getListShoes(category, price, size, gender, sort, start, limit);
-
-
 
         // set giá trị trả về là json
         res.setContentType("application/json");

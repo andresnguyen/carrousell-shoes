@@ -1,3 +1,7 @@
+<%@ page import="thuongnguyen.it78.models.OrderDetail" %>
+<%@ page import="thuongnguyen.it78.models.Shoes" %>
+<%@ page import="thuongnguyen.it78.daos.ShoesDAO" %>
+<%@ page import="thuongnguyen.it78.configs.LibraryMethod" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,19 +12,47 @@
     <meta name="description" content="thuongnguyen.it78 17130239 17130299 17130247">
 
     <title>Thanh Toán</title>
+    <style>
+        .row .checkout__input input {
+            margin-bottom: 5px;
+
+        }
+
+        .checkout-shoes-name {
+            font-weight: 600 !important;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .checkout-shoes-color {
+
+        }
+
+        .checkout-shoes-price {
+            font-size: 14px;
+
+        }
+
+        .cart__total:last-child {
+            margin-bottom: 0px;
+        }
+    </style>
 
     <%@include file="partials/css-link.jsp" %>
 
 </head>
 
 <body>
+
     <!-- Fixed -->
     <a href="#" class="scrollToTop"><i class="fa fa-arrow-up"></i></a>
 
 
     <%@include file="partials/header.jsp" %>
 
-<!-- MAIN SECTION BEGIN -->
+
+
+    <!-- MAIN SECTION BEGIN -->
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
@@ -40,85 +72,125 @@
     </section>
     <!-- Breadcrumb Section End -->
 
+
+    <%
+        HashMap<Integer, OrderDetail> mapShoes = (HashMap) request.getSession().getAttribute("cart");
+
+        if(accountLegal == null || mapShoes == null || mapShoes.isEmpty()) {
+        response.sendRedirect("/product-list");
+        return;
+    }%>
+
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="#">
+                <form action="/me/checkout" method="post" id = "form-checkout">
                     <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                            here</a> to enter your code</h6>
-                            <h6 class="checkout__title">Billing Details</h6>
+                        <div class="col-lg-7 col-md-6">
                             <div class="row">
-                                <div class="col-lg-6">
+
+                                <div class="col-lg-12">
                                     <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text" autofocus>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
+                                        <p>Tên đầy đủ<span>*</span></p>
+                                        <input type="text" value = <%=accountLegal.getFullName()%>>
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
+                                <p>Địa chỉ<span>*</span></p>
+                                <input type="text" class="checkout__input__add" value ="<%=accountLegal.getAddress()%>">
                             </div>
 
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
+                                        <p>Số điện thoại<span>*</span></p>
+                                        <input type="text" value = "<%=accountLegal.getNumber()%>">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Email<span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" value = "<%=accountLegal.getEmail()%>">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Description<span>*</span></p>
-                                <textarea name="" id="" style="width: 100%;" rows="3"></textarea>
+                                <p>Bạn có cần lưu ý gì không? Note tại đây nha<span>*</span></p>
+                                <textarea  id="" style="width: 100%;" rows="3" name = "note"></textarea>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4 class="order__title">Your order</h4>
-                                <div class="checkout__order__products">Product <span>Total</span></div>
-                                <ul class="checkout__total__products">
-                                    <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>04. German chocolate <span>$ 170.0</span></li>
+
+
+                        <div class="col-lg-5 col-md-6">
+                            <div class="cart__total">
+                                <h6 style="margin-bottom: 32px">ĐƠN HÀNG</h6>
+                                <%
+
+                                    double total = 0;
+                                    for (int i : mapShoes.keySet()) {
+                                        int quantity = mapShoes.get(i).getQuantity();
+                                        Shoes shoesDetail = ShoesDAO.getShoesByShoesDetailId(i);
+                                        total += quantity * shoesDetail.getPrice();
+                                %>
+                                <ul class="product__cart__item__text row">
+                                    <div class = "col-lg-7">
+                                        <h5 class = "checkout-shoes-name"><%=LibraryMethod.capFirstLetter(LibraryMethod.getNameShoes(shoesDetail.getName()))%></h5>
+                                        <p class = "checkout-shoes-color"><%=LibraryMethod.capFirstLetter(shoesDetail.getColor())%> - <%=shoesDetail.getSize()%></p>
+                                    </div>
+
+                                    <p class = "col-lg-1 text-start fs-6">x<%=quantity%></p>
+
+                                    <h5 class = "checkout-shoes-price col-lg-4"><%=LibraryMethod.priceToString(shoesDetail.getPrice())%></h5>
                                 </ul>
-                                <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
+                                <%
+                                    }
+                                %>
+
+<%--                                <ul class="product__cart__item__text row">--%>
+<%--                                    <div class = "col-lg-7">--%>
+<%--                                        <h5 class = "checkout-shoes-name">Basas Black Lace Low Top</h5>--%>
+<%--                                        <p class = "checkout-shoes-color">Dark Grey - 39</p>--%>
+<%--                                    </div>--%>
+
+<%--                                    <p class = "col-lg-1 text-start fs-6">x1</p>--%>
+
+<%--                                    <h5 class = "checkout-shoes-price col-lg-4">450.000 VND</h5>--%>
+<%--                                </ul>--%>
+
+<%--                                <ul class="product__cart__item__text row">--%>
+<%--                                    <div class = "col-lg-7">--%>
+<%--                                        <h5 class = "checkout-shoes-name">Basas Black Lace Low Top</h5>--%>
+<%--                                        <p class = "checkout-shoes-color">Dark Grey - 39</p>--%>
+<%--                                    </div>--%>
+
+<%--                                    <p class = "col-lg-1 text-start fs-6">x1</p>--%>
+
+<%--                                    <h5 class = "checkout-shoes-price col-lg-4">450.000 VND</h5>--%>
+<%--                                </ul>--%>
+
+<%--                                <ul class="product__cart__item__text row">--%>
+<%--                                    <div class = "col-lg-7">--%>
+<%--                                        <h5 class = "checkout-shoes-name">Basas Black Lace Low Top</h5>--%>
+<%--                                        <p class = "checkout-shoes-color">Dark Grey - 39</p>--%>
+<%--                                    </div>--%>
+
+<%--                                    <p class = "col-lg-1 text-start fs-6 border-bottom">x1</p>--%>
+
+<%--                                    <h5 class = "checkout-shoes-price col-lg-4">450.000 VND</h5>--%>
+<%--                                </ul>--%>
+
+                                <ul style="border-top: 2px dashed #888; padding-top: 13px;">
+
+                                    <li>TỔNG CỘNG<span><%=LibraryMethod.priceToString(total)%></span></li>
+
+
                                 </ul>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                <a href="#" class="primary-btn" id = "btn-submit-checkout">HOÀN TẤT ĐẶT HÀNG</a>
                             </div>
                         </div>
+
                     </div>
                 </form>
             </div>
@@ -136,6 +208,18 @@
 
     <!-- Js Plugins -->
     <%@include file="partials/js-link.jsp" %>
+
+<script>
+    const formCheckout = document.getElementById('form-checkout')
+    const btnSubmitCheckout = document.getElementById('btn-submit-checkout')
+
+    console.log(formCheckout, btnSubmitCheckout)
+
+    btnSubmitCheckout.addEventListener('click', (e) => {
+        e.preventDefault()
+        formCheckout.submit()
+    })
+</script>
 
 </body>
 

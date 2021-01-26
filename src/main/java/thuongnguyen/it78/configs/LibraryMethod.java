@@ -1,10 +1,14 @@
 package thuongnguyen.it78.configs;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import thuongnguyen.it78.daos.ShoesDAO;
+import thuongnguyen.it78.models.OrderDetail;
+import thuongnguyen.it78.models.Shoes;
 
 import javax.servlet.http.Part;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.HashMap;
 
 public class LibraryMethod {
 
@@ -88,6 +92,21 @@ public class LibraryMethod {
         if(size.equals("3")) return "41";
         return "42";
 
+    }
+
+    public static String getQueryOrder(HashMap<Integer, OrderDetail> mapShoes, int order_id) {
+
+
+        String query = ""; // (1, id, quantity)
+
+        for (int i : mapShoes.keySet()) {
+            int quantity = mapShoes.get(i).getQuantity();
+            Shoes shoesDetail = ShoesDAO.getShoesByShoesDetailId(i);
+            int id = shoesDetail.getId();
+
+            query += String.format("(%d, %d, %d),", order_id, id, quantity);
+        }
+        return query.substring(0, query.length() - 1);
     }
 
     public static void main(String[] args) {

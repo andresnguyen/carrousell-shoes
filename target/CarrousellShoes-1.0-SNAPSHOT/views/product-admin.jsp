@@ -34,7 +34,15 @@
             text-align: left
         }
 
+        #btn-alert-account {
+            position: fixed;
+            top: 9px;
+            right: 24px;
+        }
     </style>
+
+
+
 
 </head>
 
@@ -701,6 +709,26 @@
     </div>
 </div>
 
+<%
+    String flag = (String) request.getAttribute("flag");
+    if(flag != null) {
+        if(flag.equals("error")) {
+
+%>
+    <div class="alert alert-danger" role="alert" id ="btn-alert-account">
+        Thực hiện thất bai!
+    </div>
+
+<%
+} if(flag.equals("success")) {
+%>
+    <div class="alert alert-success" role="alert" id ="btn-alert-account">
+        Thực hiện thành công!
+    </div>
+<%
+        } }
+%>
+
 <!-- Bootstrap core JavaScript-->
 <script src="/resources/admin/vendor/jquery/jquery.min.js"></script>
 <script src="/resources/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -719,6 +747,15 @@
 <script src="/resources/admin/js/demo/datatables-demo.js"></script>
 
 <script src="/resources/admin/js/demo/product-admin.js"></script>
+
+<script>
+    let btnAlertAccount = document.getElementById("btn-alert-account")
+    if(btnAlertAccount) {
+        setTimeout(() => {
+            btnAlertAccount.remove()
+        }, 2000)
+    }
+</script>
 
 
 </body>

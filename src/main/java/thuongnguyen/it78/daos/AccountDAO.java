@@ -1,9 +1,11 @@
 package thuongnguyen.it78.daos;
 
 import thuongnguyen.it78.models.Account;
+import thuongnguyen.it78.models.OrderDetail;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AccountDAO {
 
@@ -295,6 +297,8 @@ public class AccountDAO {
         }
         return false;
     }
+
+
 
     public boolean delete(int id) {
         String query = "delete from accounts where account_id = ?";
