@@ -6,6 +6,19 @@ public class OrderDetail implements Serializable {
     private int ShoesID;
     private int OrderID;
     private int quantity;
+    private Shoes shoes;
+
+    public OrderDetail() {
+
+    }
+
+    public Shoes getShoes() {
+        return shoes;
+    }
+
+    public void setShoes(Shoes shoes) {
+        this.shoes = shoes;
+    }
 
     public int getShoesID() {
         return ShoesID;
@@ -37,6 +50,7 @@ public class OrderDetail implements Serializable {
                 "ShoesID=" + ShoesID +
                 ", OrderID=" + OrderID +
                 ", quantity=" + quantity +
+                ", shoes=" + shoes +
                 '}';
     }
 }

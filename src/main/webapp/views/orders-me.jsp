@@ -1,3 +1,6 @@
+<%@ page import="thuongnguyen.it78.models.Order" %>
+<%@ page import="thuongnguyen.it78.models.Shoes" %>
+<%@ page import="thuongnguyen.it78.daos.ShoesDAO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +27,7 @@
 
     <style>
         tr th {
-            width: 193px;
+            width: 220px;
         }
 
         tr td {
@@ -59,28 +62,72 @@
                                     <tr>
                                         <th>Mã Đơn Hàng</th>
                                         <th>Ngày Đặt Hàng</th>
-                                        <th>Tổng Tiền</th>
                                         <th>Tình Trạng</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
+
+                                    <%
+                                        HashMap<Integer, Order> listOrder = (HashMap<Integer, Order>) request.getAttribute("order-me");
+
+                                        for (int i : listOrder.keySet()) {
+                                            Order order = listOrder.get(i);
+
+                                    %>
                                     <tr>
-                                        <td>1</td>
-                                        <td>2011/04/25</td>
-                                        <td>100.000 VND</td>
-                                        <td>1</td>
+                                        <td><%=i%></td>
+                                        <td><%=order.getOrderDate()%></td>
+                                        <td
+                                                <%
+                                                    String result = "";
+                                                    String text = "";
+                                                    String[] className = {"bg-info", "bg-success", "bg-warning", "bg-danger"};
+
+                                                    switch (order.getStatus()) {
+                                                        case 0:
+                                                            text = "Đang chờ duyệt";
+                                                            result = className[0];
+                                                            break;
+                                                        case 1:
+                                                            text = "Đang giao hàng";
+                                                            result = className[1];
+                                                            break;
+                                                        case 2:
+                                                            text = "Đã mua";
+                                                            result = className[2];
+                                                            break;
+                                                        case -1:
+                                                            text = "Bị từ chối";
+                                                            result = className[3];
+                                                            break;
+
+                                                    }
+
+
+
+                                                %> class = "<%=result%>"
+                                        ><%=text%></td>
                                         <td>
-                                            <button class="btn btn-warning btn-circle btn-sm" data-toggle="modal" data-target = "#edit-product">
+
+                                            <button class="btn btn-warning btn-circle btn-sm btn-view-order" data-toggle="modal">
                                                 <i class="fas fa-file-alt text-white"></i>
                                             </button>
-
+                                            <%
+                                                if(order.getStatus() == 0) {
+                                            %>
                                             <button class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target = "#delete-product">
                                                 <i class="fas fa-trash"></i>
                                             </button>
+                                            <%
+                                                }
+                                            %>
                                         </td>
                                     </tr>
+                                    <%
+                                        }
+                                    %>
                                     </tbody>
 
                                 </table>
@@ -116,6 +163,21 @@
 
     <!-- Page level custom scripts -->
     <script src="/resources/admin/js/demo/datatables-demo.js"></script>
+
+<script>
+    const buttons = [...document.getElementsByClassName('btn-view-order')]
+    for(let button of buttons) {
+        button.addEventListener('click', (e) => {
+            let parentOfElement = e.target.parentElement.parentElement
+            if(e.target.tagName === 'I')
+                parentOfElement = e.target.parentElement.parentElement.parentElement
+
+                const orderID = parentOfElement.querySelector("td").innerText.trim()
+
+                window.location = "/me/order-detail/" + orderID
+        } )
+    }
+</script>
 
 </body>
 

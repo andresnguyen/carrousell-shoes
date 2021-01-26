@@ -24,15 +24,10 @@ public class CheckOutServlet extends HttpServlet {
         Account accountLegal = (Account) req.getSession().getAttribute("account");
         HashMap<Integer, OrderDetail> mapShoes = (HashMap) req.getSession().getAttribute("cart");
 
-
-
         if(CheckOutDAO.checkOut(note, accountLegal.getId(), mapShoes)) {
-            PrintWriter out = res.getWriter();
-            out.println("OK");
-            out.flush();
-            out.close();
             mapShoes.clear();
             req.getSession().setAttribute("cart", mapShoes);
+            res.sendRedirect("/me/order");
             return;
         }
 

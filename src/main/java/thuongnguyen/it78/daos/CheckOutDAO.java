@@ -102,30 +102,110 @@ public class CheckOutDAO {
 
         Connection connect = null;
         PreparedStatement pstmt = null;
+        Order order;
         try {
             connect = ConnectDB.getConnection();
             pstmt = connect.prepareStatement(query);
             ResultSet rs =  pstmt.executeQuery();
             while(rs.next()) {
+                int orderId = rs.getInt(1);
+                String orderDate = rs.getString(2);
+                int orderStatus = rs.getInt(3);
+                String orderNote = rs.getString(4);
+                int accountID = rs.getInt(5);
+                int shoesDetailID = rs.getInt(7);
+                int quantity = rs.getInt(8);
 
-                String shoesName = rs.getString(2);
-                String shoesImage = rs.getString(3);
-                double shoesPrice = Double.parseDouble(rs.getString(4));
-                String shoesColor = rs.getString(5);
 
-                Shoes shoes = new Shoes();
-                shoes.setId(shoesID);
-                shoes.setName(shoesName);
-                shoes.setImage(shoesImage);
-                shoes.setPrice(shoesPrice);
-                shoes.setColor(shoesColor);
 
-                listShoes.add(shoes);
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.setShoes(ShoesDAO.getShoesByShoesDetailId(shoesDetailID));
+                orderDetail.setQuantity(quantity);
+
+                order = new Order();
+                order.setId(orderId);
+                order.setAccount(AccountDAO.getAccount(accountID));
+                order.setOrderDate(orderDate);
+                order.setStatus(orderStatus);
+                order.setOrderNote(orderNote);
+                order.addDetail(orderDetail);
+
+                if(listShoes.containsKey(orderId)) {
+                    listShoes.get(orderId).getListOrderDetail().add(orderDetail);
+                    listShoes.put(orderId, listShoes.get(orderId));
+                    continue;
+                }
+
+                listShoes.put(orderId, order);
+
+
+
             }
             // clean up environment
             rs.close();
             pstmt.close();
             connect.close();
+
+            return listShoes;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listShoes;
+    }
+
+    public static HashMap<Integer, Order> getListOrderOfAccount(int accountId) {
+        HashMap<Integer, Order> listShoes = new HashMap<>();
+
+        String query = "select * from orders as o, order_details as od where o.order_id = od.order_id and o.account_id = ?";
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+        Order order;
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setInt(1, accountId);
+            ResultSet rs =  pstmt.executeQuery();
+            while(rs.next()) {
+                int orderId = rs.getInt(1);
+                String orderDate = rs.getString(2);
+                int orderStatus = rs.getInt(3);
+                String orderNote = rs.getString(4);
+                int accountID = rs.getInt(5);
+                int shoesDetailID = rs.getInt(7);
+                int quantity = rs.getInt(8);
+
+
+
+                OrderDetail orderDetail = new OrderDetail();
+                orderDetail.setShoes(ShoesDAO.getShoesByShoesDetailId(shoesDetailID));
+                orderDetail.setQuantity(quantity);
+
+                order = new Order();
+                order.setId(orderId);
+                order.setAccount(AccountDAO.getAccount(accountID));
+                order.setOrderDate(orderDate);
+                order.setStatus(orderStatus);
+                order.setOrderNote(orderNote);
+                order.addDetail(orderDetail);
+
+                if(listShoes.containsKey(orderId)) {
+                    listShoes.get(orderId).getListOrderDetail().add(orderDetail);
+                    listShoes.put(orderId, listShoes.get(orderId));
+                    continue;
+                }
+
+                listShoes.put(orderId, order);
+
+
+            }
+            // clean up environment
+            rs.close();
+            pstmt.close();
+            connect.close();
+
+            return listShoes;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -134,7 +214,9 @@ public class CheckOutDAO {
     }
 
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        // System.out.println(getListOrder().toString());
+        // System.out.println(getListOrderOfAccount(1).toString());
     }
 }

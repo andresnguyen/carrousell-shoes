@@ -1,13 +1,24 @@
 package thuongnguyen.it78.models;
 
 
+import java.util.ArrayList;
+
+
 public class Order {
     private int id;
     private int status;
-    private OrderDetail orderDetail;
+    private ArrayList<OrderDetail> listOrderDetail;
     private Account account;
     private String orderDate;
     private String orderNote;
+
+    public Order() {
+        listOrderDetail = new ArrayList<>();
+    }
+
+    public void addDetail(OrderDetail or) {
+        listOrderDetail.add(or);
+    }
 
     public int getId() {
         return id;
@@ -25,12 +36,12 @@ public class Order {
         this.status = status;
     }
 
-    public OrderDetail getOrderDetail() {
-        return orderDetail;
+    public ArrayList<OrderDetail> getListOrderDetail() {
+        return listOrderDetail;
     }
 
-    public void setOrderDetail(OrderDetail orderDetail) {
-        this.orderDetail = orderDetail;
+    public void setListOrderDetail(ArrayList<OrderDetail> listOrderDetail) {
+        this.listOrderDetail = listOrderDetail;
     }
 
     public Account getAccount() {
@@ -63,7 +74,7 @@ public class Order {
         return "Order{" +
                 "id=" + id +
                 ", status=" + status +
-                ", orderDetail=" + orderDetail +
+                ", orderDetail=" + listOrderDetail.toString() +
                 ", account=" + account +
                 ", orderDate='" + orderDate + '\'' +
                 ", orderNote='" + orderNote + '\'' +
