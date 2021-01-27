@@ -1,7 +1,9 @@
 package thuongnguyen.it78.controllers.account;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import thuongnguyen.it78.configs.JavaMail;
+import thuongnguyen.it78.configs.LibraryMethod;
 import thuongnguyen.it78.daos.AccountDAO;
 
 import javax.servlet.ServletException;
@@ -27,7 +29,8 @@ public class ForgotServlet extends HttpServlet {
             return;
         }
         // giá trị password mặc định. set cứng
-        final String newPassword = "123456789";
+        final String newPassword = LibraryMethod.randomPassword();
+
 
         // kiểm tra xem gửi mail thành công hay chưa
         boolean isSuccess = JavaMail.send(email,"New PassWord", newPassword);

@@ -117,7 +117,7 @@
                                             <%
                                                 if(order.getStatus() == 0) {
                                             %>
-                                            <button class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target = "#delete-product">
+                                            <button class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target = "#delete-order">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                             <%
@@ -139,6 +139,32 @@
         </div>
     </section>
     <!-- Form Login Sectionn End -->
+
+    <div class="modal fade" id="delete-order" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <span>
+                    Bạn có chắc chắn xóa <b></b>
+                </span>
+                    <form action="/me/order" method = "POST" hidden>
+                        <input type="text" name = "id">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" id = "btn-delete-order">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <%@include file="partials/footer.jsp" %>
     <!-- Search Begin -->
@@ -177,6 +203,33 @@
                 window.location = "/me/order-detail/" + orderID
         } )
     }
+</script>
+
+<script>
+    $('#delete-order').on('show.bs.modal', function (event) {
+        // get row
+        const row = $(event.relatedTarget)[0].parentElement.parentElement
+
+        // get form delete
+        const modal = $(this)[0]
+        const form = modal.querySelector('form')
+        const inputName = form.querySelector('input')
+
+        const id = row.querySelector("td").innerText.trim()
+
+        inputName.value = id;
+
+        console.log(inputName, id)
+
+        const btnDelOrder = modal.querySelector("#btn-delete-order")
+
+        btnDelOrder.addEventListener('click', () => {
+            form.submit()
+        })
+
+
+
+    })
 </script>
 
 </body>

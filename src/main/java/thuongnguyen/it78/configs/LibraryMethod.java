@@ -1,6 +1,7 @@
 package thuongnguyen.it78.configs;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import thuongnguyen.it78.daos.ShoesDAO;
 import thuongnguyen.it78.models.OrderDetail;
 import thuongnguyen.it78.models.Shoes;
@@ -109,8 +110,14 @@ public class LibraryMethod {
         return query.substring(0, query.length() - 1);
     }
 
+    public static String randomPassword() {
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+        String pwd = RandomStringUtils.random( 15, characters );
+        return pwd;
+    }
+
     public static void main(String[] args) {
-        System.out.println(DigestUtils.md5Hex("123456"));
+        System.out.println(randomPassword());
     }
 
 }

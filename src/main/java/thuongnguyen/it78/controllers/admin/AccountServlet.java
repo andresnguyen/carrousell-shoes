@@ -64,6 +64,8 @@ public class AccountServlet extends HttpServlet {
         String genderString = req.getParameter("gender");
         String address = req.getParameter("address");
 
+
+
         // check if error
         if(fullname == null || number == null || email == null || genderString == null || address == null) {
             // set default
@@ -77,6 +79,14 @@ public class AccountServlet extends HttpServlet {
 
         // control when type equal add
         if(type.equals("add")) {
+
+            if(AccountDAO.checkEmail(email)) {
+                listAccount = AccountDAO.getAccounts();
+                req.setAttribute("list-account", listAccount);
+                req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
+                return;
+            }
+
             String password = req.getParameter("password");
 
             Account account = new Account();
@@ -150,7 +160,9 @@ public class AccountServlet extends HttpServlet {
 
             } catch (Exception e) {
                 e.printStackTrace();
-                res.sendRedirect("/views/404.jsp");
+                listAccount = AccountDAO.getAccounts();
+                req.setAttribute("list-account", listAccount);
+                req.getRequestDispatcher("/views/account-admin.jsp").forward(req, res);
                 return;
             }
 

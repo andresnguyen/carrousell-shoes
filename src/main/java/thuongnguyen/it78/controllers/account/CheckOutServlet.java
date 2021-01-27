@@ -1,11 +1,8 @@
 package thuongnguyen.it78.controllers.account;
 
-import thuongnguyen.it78.daos.AccountDAO;
 import thuongnguyen.it78.daos.CheckOutDAO;
-import thuongnguyen.it78.daos.ShoesDAO;
 import thuongnguyen.it78.models.Account;
 import thuongnguyen.it78.models.OrderDetail;
-import thuongnguyen.it78.models.Shoes;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

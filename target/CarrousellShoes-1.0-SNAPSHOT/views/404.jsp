@@ -10,6 +10,7 @@
     <title>404</title>
 
     <%@include file="partials/css-link.jsp" %>
+    <link rel="stylesheet" href="/resources/css/style-404.css" type="text/css">
 
 
 </head>
@@ -24,10 +25,10 @@
     </div>
 
     <div class="container1">
-        <h2>Oops! Page not found.</h2>
+        <h2>TRANG KHÔNG TỒN TẠI!</h2>
         <h1>404</h1>
-        <p>We can't find the page you're looking for.</p>
-        <a href="/">Go back home</a>
+        <p>Bạn vui lòng thử lại nhé <3</p>
+        <a href="/">Trở về trang chủ</a>
     </div>
         <!-- Js Plugins -->
     <%@include file="partials/js-link.jsp" %>

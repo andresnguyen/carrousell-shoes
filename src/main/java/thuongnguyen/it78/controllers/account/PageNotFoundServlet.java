@@ -7,15 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/me/logout")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/404")
+public class PageNotFoundServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.getSession().removeAttribute("account");
-        req.getSession().removeAttribute("cart");
-        res.sendRedirect("/");
+        req.getRequestDispatcher("/views/404.jsp").forward(req, res);
     }
 }

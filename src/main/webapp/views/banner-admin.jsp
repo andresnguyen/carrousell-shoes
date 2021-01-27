@@ -421,7 +421,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="user" action="/insertbanner" method="POST" enctype="multipart/form-data">
+                <form class="user" action="/admin/insertbanner" method="POST" enctype="multipart/form-data">
                     <div class="form-group row">
                         <div class="col-sm-12">
                             <label for="name-form">Tên Banner</label>
@@ -456,7 +456,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="user" action="/updatebanner" method="POST" enctype="multipart/form-data">
+                <form class="user" action="/admin/updatebanner" method="POST" enctype="multipart/form-data">
                     <input type="text" name = "id" hidden/>
                     <div class="form-group row">
                         <div class="col-sm-12">

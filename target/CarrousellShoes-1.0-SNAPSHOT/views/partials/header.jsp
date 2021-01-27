@@ -89,6 +89,14 @@
                                     <li class="header__navbar-user-item"><a href="/me/info">Tài khoản của tôi</a></li>
                                     <li class="header__navbar-user-item"><a href="/me/password">Đổi mật khẩu</a></li>
                                     <li class="header__navbar-user-item"><a href="/me/order">Đơn hàng</a></li>
+                                    <%
+                                        if(accountLegal.getRole() > 1) {
+                                    %>
+                                    <li class="header__navbar-user-item"><a href="/admin/view">Người quản trị</a></li>
+
+                                    <%
+                                        }
+                                    %>
                                     <li class="header__navbar-user-item header__navbar-user-item--separate"><a href="/me/logout">Đăng xuất</a></li>
 
                                 </ul>

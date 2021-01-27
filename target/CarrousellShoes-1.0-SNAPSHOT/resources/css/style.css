@@ -4251,6 +4251,7 @@ p {
 	background-color: #e67e22;
 	z-index: 99;
 	color: #fff;
+	cursor: pointer;
 }
 
 .shopping-cart-fixed i {

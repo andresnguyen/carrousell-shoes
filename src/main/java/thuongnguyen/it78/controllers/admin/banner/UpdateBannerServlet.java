@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 @MultipartConfig()
 
-@WebServlet("/updatebanner")
+@WebServlet("/admin/updatebanner")
 public class UpdateBannerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
@@ -53,7 +53,7 @@ public class UpdateBannerServlet extends HttpServlet {
             ps.executeUpdate();
             ps.close();
             con.close();
-            response.sendRedirect("/banner");
+            response.sendRedirect("/admin/banner");
         } catch (SQLException e) {
             e.printStackTrace();
         }

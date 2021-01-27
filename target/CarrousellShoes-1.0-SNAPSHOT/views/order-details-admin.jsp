@@ -156,7 +156,7 @@
                             </div>
 
                         </form>
-                        <a href="#" class="primary-btn" style="margin-top: 50px" id ="btn-update-status">CẬP NHẬT</a>
+                        <a href="/me/checkout" class="primary-btn" style="margin-top: 50px" id ="btn-update-status">CẬP NHẬT</a>
 
                     </div>
 

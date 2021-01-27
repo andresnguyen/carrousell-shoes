@@ -53,7 +53,6 @@ function pagination(destroy) {
             html += `<div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" data-setbg="/resources/img${img}" style="background-image: url('/resources/img${img}')">
-                                <span class="label">Sale</span>
                             </div>
                             <div class="product__item__text">
                                 <h6>${capitalize(getName(shoes.name).toLowerCase())}</h6>

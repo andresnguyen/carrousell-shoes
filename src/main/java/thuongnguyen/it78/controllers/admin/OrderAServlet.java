@@ -17,8 +17,8 @@ public class OrderAServlet extends HttpServlet {
 
         int orderID = Integer.parseInt(req.getParameter("orderID"));
         int status = Integer.parseInt(req.getParameter("status"));
-
         CheckOutDAO.setStatus(orderID, status);
+
         res.sendRedirect("/admin/order");
 
     }

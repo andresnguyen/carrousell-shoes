@@ -3,7 +3,6 @@ package thuongnguyen.it78.daos;
 import thuongnguyen.it78.configs.LibraryMethod;
 import thuongnguyen.it78.models.Order;
 import thuongnguyen.it78.models.OrderDetail;
-import thuongnguyen.it78.models.Shoes;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -98,7 +97,7 @@ public class CheckOutDAO {
     public static HashMap<Integer, Order> getListOrder() {
         HashMap<Integer, Order> listShoes = new HashMap<>();
 
-        String query = "select * from orders as o, order_details as od where o.order_id = od.order_id";
+        String query = "select * from orders as o, order_details as od where o.order_id = od.order_id and o.order_status != 5";
 
         Connection connect = null;
         PreparedStatement pstmt = null;
@@ -157,7 +156,7 @@ public class CheckOutDAO {
     public static HashMap<Integer, Order> getListOrderOfAccount(int accountId) {
         HashMap<Integer, Order> listShoes = new HashMap<>();
 
-        String query = "select * from orders as o, order_details as od where o.order_id = od.order_id and o.account_id = ?";
+        String query = "select * from orders as o, order_details as od where o.order_id = od.order_id and o.account_id = ? and o.order_status != 5";
 
         Connection connect = null;
         PreparedStatement pstmt = null;
@@ -294,4 +293,30 @@ public class CheckOutDAO {
     }
 
 
+    public static boolean deleteOrder(int parseInt) {
+        String sql = "update orders set order_status = 5 where order_id = ?";
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(sql);
+            pstmt.setInt(1, parseInt);
+
+            pstmt.executeUpdate();
+
+
+            pstmt.close();
+            connect.close();
+            return true;
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+
+    }
 }

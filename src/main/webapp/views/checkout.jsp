@@ -76,8 +76,13 @@
     <%
         HashMap<Integer, OrderDetail> mapShoes = (HashMap) request.getSession().getAttribute("cart");
 
-        if(accountLegal == null || mapShoes == null || mapShoes.isEmpty()) {
-        response.sendRedirect("/product-list");
+        if(accountLegal == null) {
+            response.sendRedirect("/account/login");
+            return;
+        }
+
+        if(mapShoes == null || mapShoes.isEmpty()) {
+        response.sendRedirect("/");
         return;
     }%>
 

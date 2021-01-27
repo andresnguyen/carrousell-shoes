@@ -16,6 +16,17 @@ import java.io.IOException;
 public class OrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
+    String id = req.getParameter("id");
+    if(id == null) {
+        res.sendRedirect("/me/order");
+        return;
+    }
+
+    if(!CheckOutDAO.deleteOrder(Integer.parseInt(id))) {
+        // control erros
+    }
+
+        res.sendRedirect("/me/order");
 
 
     }

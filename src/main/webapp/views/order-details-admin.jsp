@@ -195,7 +195,8 @@
 
     console.log(btnUpdateStatus, btnFormStatus)
 
-    btnUpdateStatus.addEventListener('click', () => {
+    btnUpdateStatus.addEventListener('click', (e) => {
+        e.preventDefault()
         btnFormStatus.submit()
     })
 

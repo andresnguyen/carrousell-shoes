@@ -1,5 +1,7 @@
 package thuongnguyen.it78.filter;
 
+import thuongnguyen.it78.models.Account;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -25,11 +27,52 @@ public class ServiceFilter implements Filter {
             HashMap mapCart = new HashMap();
             req.getSession().setAttribute("cart", mapCart);
         }
+        String url = req.getRequestURI();
+
+        Account account = (Account) req.getSession().getAttribute("account");
+
+        if(account != null) {
+            if(url.startsWith("/account")) {
+                res.sendRedirect("/");
+                return;
+
+            }
+
+            if(url.startsWith("/admin")) {
+                if(account.getRole() < 2) {
+                    res.sendRedirect("/404");
+                    return;
+                }
+            }
+
+        }
+
+        if(account == null) {
+            if(url.startsWith("/me/cart") || url.startsWith("/me/change-size") || url.startsWith("/me/checkout")) {
+                // set UTF-8 cho tất cả request lên
+                req.setCharacterEncoding("UTF-8");
+
+                filterChain.doFilter(req, res);
+                return;
+
+            }
+            if(url.startsWith("/me")) {
+                res.sendRedirect("/404");
+                return;
+            }
+
+            if(url.startsWith("/admin")) {
+                res.sendRedirect("/404");
+                return;
+
+            }
+        }
 
         // set UTF-8 cho tất cả request lên
         req.setCharacterEncoding("UTF-8");
 
         filterChain.doFilter(req, res);
+
 
     }
 

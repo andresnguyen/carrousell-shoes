@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 @MultipartConfig()
 
-@WebServlet("/insertbanner")
+@WebServlet("/admin/insertbanner")
 public class InsertBannerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name").trim();
@@ -42,7 +42,7 @@ public class InsertBannerServlet extends HttpServlet {
             ps.executeUpdate();
             ps.close();
             con.close();
-            response.sendRedirect("/banner");
+            response.sendRedirect("/admin/banner");
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -62,9 +62,12 @@
                             <tbody>
                             <%
                                 HashMap<Integer, OrderDetail> mapShoes = (HashMap) request.getSession().getAttribute("cart");
+                                double total = 0;
                                 for (int i : mapShoes.keySet()) {
                                     int quantity = mapShoes.get(i).getQuantity();
                                     Shoes shoesDetail = ShoesDAO.getShoesByShoesDetailId(i);
+                                    total += quantity * shoesDetail.getPrice();
+
 
 
 
@@ -123,7 +126,7 @@
                         <h6>ĐƠN HÀNG</h6>
                         <ul>
 
-                            <li>TỔNG CỘNG<span>6.500.000 VND</span></li>
+                            <li>TỔNG CỘNG<span><%=LibraryMethod.priceToString(total)%></span></li>
 
 
                         </ul>
