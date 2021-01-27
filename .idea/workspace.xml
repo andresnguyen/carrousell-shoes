@@ -6,7 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94337ab3-8755-434c-83b1-43b0e6ec19e9" name="Default Changelist" comment="" />
+    <list default="true" id="94337ab3-8755-434c-83b1-43b0e6ec19e9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/category/CategoryServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/category/InsertCategoryServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/category/UpdateCategoryServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,9 +83,11 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\resources" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web\views" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\views\admin" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\resources\js" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web" />
       <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -89,11 +97,9 @@
       <recent name="thuongnguyen.it78.api" />
       <recent name="thuongnguyen.it78.filter" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\views\admin" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\resources\js" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\resources" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web\views" />
       <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\views" />
     </key>
   </component>
@@ -260,7 +266,9 @@
       <workItem from="1611212231501" duration="2426000" />
       <workItem from="1611286067821" duration="7790000" />
       <workItem from="1611495749097" duration="5418000" />
-      <workItem from="1611548598079" duration="19533000" />
+      <workItem from="1611548598079" duration="20248000" />
+      <workItem from="1611584632312" duration="2378000" />
+      <workItem from="1611723507150" duration="12081000" />
     </task>
     <servers />
   </component>
@@ -279,5 +287,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/category/UpdateCategoryServlet.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
