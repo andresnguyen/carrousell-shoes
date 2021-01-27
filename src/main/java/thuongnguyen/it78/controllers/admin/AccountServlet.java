@@ -24,6 +24,9 @@ public class AccountServlet extends HttpServlet {
         ArrayList<Account> listAccount;
         req.setAttribute("flag", "error");
 
+        // set default
+        listAccount = AccountDAO.getAccounts();
+        req.setAttribute("list-account", listAccount);
 
 
         if(type == null || !type.matches("add|update|delete")) {

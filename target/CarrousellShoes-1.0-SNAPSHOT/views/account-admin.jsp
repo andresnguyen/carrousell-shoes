@@ -305,7 +305,7 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=account1.getFullName()%></span>
                             <img class="img-profile rounded-circle"
-                                 src="/resources/admin/img/undraw_profile.svg">
+                                 src="/resources/img/avatar/<%=account1.getAvatar()%>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -370,20 +370,7 @@
 
                                 </tr>
                                 </thead>
-                                <tfoot>
-                                <tr>
 
-                                    <th class = "id">ID</th>
-                                    <th class = "avatar">Avatar</th>
-                                    <th class = "name">Tên</th>
-                                    <th class = "email">Email</th>
-                                    <th class = "phone">Số điện thoại</th>
-                                    <th class = "active">Active</th>
-                                    <th class = "role">Role</th>
-                                    <th class = "action">Action</th>
-
-                                </tr>
-                                </tfoot>
                                 <tbody>
                                 <%
                                     ArrayList<Account> listAccount = (ArrayList<Account>) request.getAttribute("list-account");
@@ -495,7 +482,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label for="repassword-form">Nhập lại mật khẩu</label>
-                            <input type="repassword-form" class="form-control form-control-user" id="repassword-form" name = "repassword">
+                            <input type="password" class="form-control form-control-user" id="repassword-form" name = "repassword">
                         </div>
                     </div>
 

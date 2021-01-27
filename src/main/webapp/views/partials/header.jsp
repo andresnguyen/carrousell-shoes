@@ -81,7 +81,7 @@
 
                             <div class="header__navbar-item header__navbar-user">
 
-                                <img src="/resources/img/site/default.jpg" alt="" class="header__navbar-user-img">
+                                <img src="/resources/img/avatar/<%=accountLegal.getAvatar()%>" alt="" class="header__navbar-user-img">
                                 <span class="header__navbar-user-name"><%= accountLegal.getFullName()%></span>
 
                                 <ul class="header__navbar-user-menu">

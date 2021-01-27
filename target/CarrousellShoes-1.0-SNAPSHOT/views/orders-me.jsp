@@ -107,7 +107,7 @@
 
 
 
-                                                %> class = "<%=result%>"
+                                                %> class = "<%=result%> text-light"
                                         ><%=text%></td>
                                         <td>
 

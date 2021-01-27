@@ -1,6 +1,12 @@
-<%@ page import="java.util.HashMap" %>
-<%@ page import="java.sql.ResultSet" %>
-<%@ page import="thuongnguyen.it78.models.Account" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="thuongnguyen.it78.models.Category" %>
+<%@ page import="thuongnguyen.it78.models.Account" %><%--
+  Created by IntelliJ IDEA.
+  User: Admin
+  Date: 1/27/2021
+  Time: 8:34 PM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Quản Lý Banner</title>
-
+    <title>Quản Lý Danh Mục</title>
     <link rel="icon" href="/resources/img/site/favicon.ico">
 
 
@@ -236,7 +241,7 @@
                             </h6>
                             <a class="dropdown-item d-flex align-items-center" href="#">
                                 <div class="dropdown-list-image mr-3">
-                                    <img class="rounded-circle" src="/views/admin/resources/admin/img/undraw_profile_1.svg"
+                                    <img class="rounded-circle" src="/resources/admin/img/undraw_profile_1.svg"
                                          alt="">
                                     <div class="status-indicator bg-success"></div>
                                 </div>
@@ -336,10 +341,10 @@
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary" style="display: flex; justify-content: space-between;">
-                            <span>Quản lý banner</span>
+                            <b>Quản lý danh mục</b>
                             <a href="#" class="btn btn-success btn-sm btn-icon-split">
                                 <!-- Add  -->
-                                <span class="text" style="margin-right: auto" data-toggle="modal" data-target="#add-product">Thêm Banner</span>
+                                <span class="text" style="margin-right: auto" data-toggle="modal" data-target="#add-category">Thêm danh mục</span>
                             </a>
 
                         </h6>
@@ -349,38 +354,58 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="display: table !important;">
+                            <table class="table table-bordered" id="dataTable" style="display: table !important;" cellspacing="0">
                                 <thead>
                                 <tr>
                                     <th class = "id">ID</th>
-                                    <th class = "name-product">Tên</th>
-                                    <th class = "avatar">Hình ảnh</th>
-                                    <th class = "active">Active</th>
-                                    <th class = "action">Action</th>
+                                    <th class = "name">Tên</th>
+                                    <th class = "desc">Mô tả</th>
+                                    <th class = "active" style="width: 200px">Active</th>
+                                    <th class = "action">Hành động</th>
+
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                <% ResultSet rs = (ResultSet) request.getAttribute("bannerlist");
-                                    while (rs.next()){
+                                <%
+                                    ArrayList<Category> list = (ArrayList<Category>) request.getAttribute("list-account");
+
+                                    for(Category category : list) {
                                 %>
                                 <tr>
-                                    <td class = "id-td"><%=rs.getString(1)%></td>
-                                    <td class = "name-td"><%=rs.getString(2)%></td>
-                                    <td  class = "text-center"><img src="/resources/img/banner/<%=rs.getString(3)%>" alt="Avatar"></td>
-                                    <td class = "active-td">
-                                        <%if (rs.getInt(4)==2){%>
-                                        <span class="badge bg-danger">Ẩn</span>
-                                        <%}else {%><span class="badge bg-success">Hiện</span><%}%>
-                                    </td>
-                                    <td class = "action-td">
-                                        <button class="btn btn-warning btn-circle btn-sm" data-toggle="modal" data-target = "#edit-product">
+                                    <td class = "id"><%=category.getId()%></td>
+                                    <td class = "name"><%=category.getName()%></td>
+                                    <td class = "desc"><%=category.getDesc()%></td>
+                                    <td
+                                    <%
+                                        String text = "Chưa kích hoạt";
+                                        String className = "bg-warning";
+                                        if(category.getActive() == 1) {
+                                            text = "Đã kích hoạt";
+                                            className = "bg-success";
+                                        }
+                                    %>
+                                            class = "active <%=className%> text-light"
+                                    ><%=text%></td>
+
+
+
+                                    <td>
+                                        <input class = "active" type="text" value = "<%=category.getActive()%>" hidden>
+
+                                        <button class="btn btn-warning btn-circle btn-sm" data-toggle="modal" data-target = "#edit-category" data-id ="1">
                                             <i class="fas fa-file-alt text-white"></i>
                                         </button>
 
+                                        <button class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target = "#delete-category">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
-                                <%}%>
+                                <%
+                                    }
+                                %>
+
                                 </tbody>
                             </table>
                         </div>
@@ -410,7 +435,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -425,87 +450,101 @@
 </div>
 
 <!-- Add Product Modal  -->
-<div class="modal fade" id="add-product" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="add-category" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
     <div class="modal-dialog modal-size">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Thêm Banner</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Thêm danh mục</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="user" action="/admin/insertbanner" method="POST" enctype="multipart/form-data">
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <label for="name-form">Tên Banner</label>
-                            <input type="text" class="form-control form-control-user" id="name-form" name = "name">
-                        </div>
+                <form class="user" action = "/admin/category?type=add" method="POST">
+
+
+                    <div class="form-group">
+                        <label for="email-form">Tên danh mục</label>
+                        <input type="email" class="form-control form-control-user" id="email-form" name = "name">
                     </div>
 
-                    <div class="form-group img">
-                        <label for="file-form1">Hình ảnh banner</label>
-                        <input type="file" class="form-control-file" id="file-form1" accept="image/jpeg, image/png, image/gif, image/jpg" name = "image">
+                    <div class="form-group">
+                        <label for="gender-form">Trạng thái</label>
+                        <select class="form-control" id="gender-form" name = "active">
+                            <option value="1">Kích hoạt</option>
+                            <option value="0">Không kích hoạt</option>
+                        </select>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <button type="submit" class="btn btn-primary" id="btn-add-product">Thêm</button>
+                    <div class="form-group">
+                        <label for="address-form">Mô tả</label>
+
+                        <input type="address" class="form-control form-control-user" id="address-form" name = "desc">
                     </div>
+
+
 
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id = "btn-add-category">Thêm</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Update Product Modal  -->
-<div class="modal fade" id="edit-product" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="edit-category" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-size">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" >Cập nhật banner</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Cập nhật danh mục</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="user" action="/admin/updatebanner" method="POST" enctype="multipart/form-data">
-                    <input type="text" name = "id" hidden/>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <label for="name-form1">Tên banner</label>
-                            <input type="text" class="form-control form-control-user" id="name-form1" name ="name" value="">
-                        </div>
+                <form class="user" action = "/admin/category?type=edit" method="POST">
+                    <input type="text" name = "id" hidden>
 
+                    <div class="form-group">
+                        <label for="email-form1">Tên danh mục</label>
+                        <input type="text" class="form-control form-control-user" id="email-form1" name = "name">
                     </div>
 
-                    <div class="form-group img">
-                        <label for="file-form11">Hình ảnh banner</label>
-                        <input type="file" class="form-control-file" id="file-form11" accept="image/jpeg, image/png, image/gif" name = "image" value=""/>
+
+
+                    <div class="form-group">
+                        <label for="gender-form1">Trạng thái</label>
+                        <select class="form-control" id="gender-form1" name = "active">
+                            <option value = "1">Kích hoạt</option>
+                            <option value = "0">Không kích hoạt</option>
+                        </select>
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="status" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Ẩn banner
-                        </label>
-                        <input style="display: none" id="idbanner" name="id">
+
+
+
+                    <div class="form-group">
+                        <label for="address-form1">Mô tả</label>
+
+                        <input type="address" class="form-control form-control-user" id="address-form1" name = "desc">
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                        <button type="submit" class="btn btn-primary" id = "btn-edit-product">Cập nhật</button>
-                    </div>
+
 
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id = "btn-edit-category">Cập nhật</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Modal Delete Product -->
-<div class="modal fade" id="delete-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="delete-category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -515,16 +554,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                <span>
-                    Bạn có chắc chắn xóa <b></b>
-                </span>
-                <form action="/admin/product?type=delete" method = "POST" hidden>
+                <span>Bạn có chắc chắn xóa <b></b></span>
+
+                <form action="/admin/category?type=delete" method="POST" hidden>
                     <input type="text" name = "id">
                 </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary" id = "btn-delete-product">Xóa</button>
+                <button type="button" class="btn btn-primary" id ="btn-delete-category">Xóa</button>
             </div>
         </div>
     </div>
@@ -548,149 +587,137 @@
 <script src="/resources/admin/js/demo/datatables-demo.js"></script>
 
 <script>
-    // delete product modal control
-    $('#delete-product').on('show.bs.modal', function (event) {
-        // get row
+    // delete account modal control
+    $('#delete-category').on('show.bs.modal', function (event) {
+        // get id from row
         const row = $(event.relatedTarget)[0].parentElement.parentElement
-        // get value from row
-        // const id = row.querySelector('.id-td').innerText.trim()
-        // const shoesName = row.querySelector('.name-td').innerText.trim()
-        // log value test
-        console.log(id, shoesName, size)
+
+        const id = row.querySelector('.id').innerText.trim()
+        const name = row.querySelector('.name').innerText.trim()
+
+
+
         // get form delete
         const modal = $(this)[0]
         const form = modal.querySelector('form')
-        // // edit text
-        modal.querySelector(".modal-body b").innerText = `${shoesName}, SIZE ${size}?`
+
+        console.log(form);
+
+        // edit text
+
+        modal.querySelector(".modal-body b").innerText = `danh mục ${name}?`
+
         // asign id value to input
         form.querySelector("input").value = id
+
+
         // get button [Delete] of modal
-        const button = modal.querySelector('#btn-delete-product');
-        console.log(button);
-        // add event when button click so will submit form delete
+        const button = modal.querySelector('#btn-delete-category');
+
+        // // add event when button click so will submit form delete
         button.addEventListener('click', (e) => {
-            //form.submit()
-            console.log("form submited");
+            form.submit()
         })
+
+        // id
+
     })
-    // edit product modal control
-    $('#edit-product').on('show.bs.modal', function (event) {
-        // get row present
-        const row = $(event.relatedTarget)[0].parentElement.parentElement
+
+    // add account modal control
+    $('#add-category').on('show.bs.modal', function (event) {
         // get modal
         const modal = $(this)[0]
-        const id = row.querySelector('.id-td').innerText.trim()
-        const name = row.querySelector('.name-td').innerText.trim()
-        const active = row.querySelector('.active-td span').innerText.trim()
-        let isCheck = true
-        if(active === "Hiện") isCheck = false
+
+        // get button [Add] of modal
+        const button = modal.querySelector('#btn-add-category');
+
+        // get form
+        const form = modal.querySelector("form")
+        console.log(form);
+
+        // add event when button clicked
+        button.addEventListener('click', (e) => {
+
+            // get value of form to validate
+            const name = modal.querySelector('input[name="name"]').value
+            const desc = modal.querySelector('input[name="desc"]').value
+
+            if(name.length == 0 || desc.length == 0) {
+                return alert("Có lỗi! Vui lòng kiểm tra lại.")
+            }
+
+            // if everything okie so will submit form
+            form.submit()
+
+
+        })
+
+
+    })
+
+    // edit account modal control
+    $('#edit-category').on('show.bs.modal', function (event) {
+
+        // get row present
+        const row = $(event.relatedTarget)[0].parentElement.parentElement
+
+        // get modal
+        const modal = $(this)[0]
+
+
+        // get value form row present to asign form edit account
+
+        const id = row.querySelector('.id').innerText.trim()
+        const name = row.querySelector('.name').innerText.trim()
+        const des = row.querySelector('.desc').innerText.trim()
+        const active = row.querySelector('td .active').value.trim()
+
+        console.log(id, name , des, active);
+
+
+        const form = modal.querySelector("form")
+
         // should be call api but I using DOM
         // get element to asign value
-        const idInput =  modal.querySelector('input[name="id"]')
+
         const nameInput = modal.querySelector('input[name="name"]')
-        const checkInput = modal.querySelector('input[name="status"]')
+        const activeSelect = modal.querySelector('select[name="active"]')
+        const desInput = modal.querySelector('input[name="desc"]')
+        const idInput = modal.querySelector('input[name="id"]')
+
+
+
+
         // asign value
-        idInput.value = id
         nameInput.value = name
-        checkInput.checked = isCheck;
-        //     fileInput.files[0] = {...fileInput.files[0]}
-        //     fileInput.files[0].name = image
-        // //
+        activeSelect.value = active
+        desInput.value = des
+        idInput.value = id;
+
+
         // get button
-        const button = modal.querySelector('#btn-edit-product');
-        const form = modal.querySelector('form')
-        // add event listener
+        const button = modal.querySelector('#btn-edit-category');
+
+        //  add event listener
         button.addEventListener('click', (e) => {
-            idValue = idInput.value
-            nameValue = nameInput.value
-            // validate value
-            if(idValue.length == 0 || nameValue.length == 0) {
+            e.preventDefault()
+            const nameValue = nameInput.value
+            const desValue = desInput.value
+
+            console.log(idInput.value)
+
+
+            // check condition
+            if(nameValue.length == 0 || desValue.length == 0) {
                 return alert("Có lỗi! Vui lòng kiểm tra lại")
             }
-            // if okie. submit form
+
+            //     // if okie. submit form
             form.submit()
+
         })
+
     })
-    // edit product modal control
-    $('#add-product').on('show.bs.modal', function (event) {
-        // get row present
-        const row = $(event.relatedTarget)[0].parentElement.parentElement
-        // get modal
-        const modal = $(this)[0]
-        // should be call api but I using DOM
-        // get element to asign value
-        const nameInput = modal.querySelector('input[name="name"]')
-        const arrFile = modal.querySelectorAll('input[type="file"]')
-        function addEvent(...arr) {
-            for(let element of arr) {
-                element.addEventListener('change', (e) => {
-                    if(e.target.value < 1) {
-                        e.target.value = 1
-                    }
-                })
-            }
-        }
-        function checkEventFile(arr) {
-            const elements = [...arr]
-            for(let element of elements) {
-                if(element.files.length !== 1) return false
-            }
-            return true;
-        }
-        // get button
-        const button = modal.querySelector('#btn-add-product');
-        const form = modal.querySelector('form')
-        // add event listener
-        button.addEventListener('click', (e) => {
-            nameValue = nameInput.value
-            if(!checkEventFile(arrFile)) return alert("Vui lòng chọn file cho chính xác!")
-            // validate value
-            if(nameValue.length == 0 ) {
-                return alert("Có lỗi! Vui lòng kiểm tra lại")
-            }
-            // if okie. submit form
-            form.submit()
-        })
-    })
-</script>
-
-<script>
-    var ALERT_TITLE = "Oops!";
-    var ALERT_BUTTON_TEXT = "Ok";
-    if(document.getElementById) {
-        window.alert = function(txt) {
-            createCustomAlert(txt);
-        }
-    }
-    function createCustomAlert(txt) {
-        d = document;
-        if(d.getElementById("modalContainer")) return;
-        mObj = d.getElementsByTagName("body")[0].appendChild(d.createElement("div"));
-        mObj.id = "modalContainer";
-        mObj.style.height = d.documentElement.scrollHeight + "px";
-
-        alertObj = mObj.appendChild(d.createElement("div"));
-        alertObj.id = "alertBox";
-        if(d.all && !window.opera) alertObj.style.top = document.documentElement.scrollTop + "px";
-        alertObj.style.left = (d.documentElement.scrollWidth - alertObj.offsetWidth)/2 + "px";
-        alertObj.style.visiblity="visible";
-        h1 = alertObj.appendChild(d.createElement("h1"));
-        h1.appendChild(d.createTextNode(ALERT_TITLE));
-        msg = alertObj.appendChild(d.createElement("p"));
-        //msg.appendChild(d.createTextNode(txt));
-        msg.innerHTML = txt;
-        btn = alertObj.appendChild(d.createElement("a"));
-        btn.id = "closeBtn";
-        btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
-        btn.href = "#";
-        btn.focus();
-        btn.onclick = function() { removeCustomAlert();return false; }
-        alertObj.style.display = "block";
-
-    }
-    function removeCustomAlert() {
-        document.getElementsByTagName("body")[0].removeChild(document.getElementById("modalContainer"));
-    }
 </script>
 
 </body>

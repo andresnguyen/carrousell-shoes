@@ -305,7 +305,7 @@
 
                     <div class="topbar-divider d-none d-sm-block"></div>
                     <%
-                        Account account = (Account) request.getSession().getAttribute("account");
+                        Account account1 = (Account) request.getSession().getAttribute("account");
 
                     %>
 
@@ -313,9 +313,9 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=account.getFullName()%></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=account1.getFullName()%></span>
                             <img class="img-profile rounded-circle"
-                                 src="/resources/admin/img/undraw_profile.svg">
+                                 src="/resources/img/avatar/<%=account1.getAvatar()%>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -383,22 +383,7 @@
 
                                 </tr>
                                 </thead>
-                                <tfoot>
-                                <tr>
 
-                                    <th class = "id">ID</th>
-                                    <th class = "img-product">Hình ảnh</th>
-                                    <th class = "name-product">Tên sản phẩm</th>
-                                    <th class = "type-product">Loại</th>
-                                    <th class = "size-product">Size</th>
-                                    <th class = "price-product">Giá</th>
-                                    <th class = "quantity-product">Số lượng</th>
-                                    <th class = "category-product">Danh mục</th>
-                                    <th class = "active">Active</th>
-                                    <th class = "action">Action</th>
-
-                                </tr>
-                                </tfoot>
                                 <tbody>
                                 <%
                                     ArrayList<Shoes> listShoes = (ArrayList<Shoes>) request.getAttribute("listShoes");

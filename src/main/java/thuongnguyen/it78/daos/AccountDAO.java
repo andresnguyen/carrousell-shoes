@@ -298,6 +298,26 @@ public class AccountDAO {
         return false;
     }
 
+    public static boolean changeAvatar(String fileName, int id) {
+        String query = "update from accounts set account_avatar = ? where account_id = ?";
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(query);
+            pstmt.setString(1, fileName);
+            pstmt.setInt(2, id);
+            pstmt.executeUpdate();
+            // clean up environment
+            pstmt.close();
+            connect.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 
     public boolean delete(int id) {

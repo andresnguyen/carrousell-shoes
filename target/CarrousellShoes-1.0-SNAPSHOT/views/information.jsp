@@ -10,6 +10,38 @@
     <title><%=accountInfo.getFullName()%></title>
 
     <%@include file="partials/css-link.jsp" %>
+    <style>
+
+        .input-file {
+            margin: 0 auto;
+            width: 100%;
+            height: 4rem;
+            position: relative;
+        }
+        .input-label {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: -12px;
+            width: 100%;
+            height: 20%;
+            z-index: 2;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .input-file input[type="file"] {
+            display: none;
+        }
+        .input-file .icon-upload {
+            color: #ccc;
+            font-size: 3rem;
+            pointer-events: none;
+        }
+
+    </style>
 
 </head>
 
@@ -28,11 +60,24 @@
                 <div class="container">
                     <div class="tab-content active">
                         <div class="post">
-                            <img src="/resources/img/site/default.jpg" alt="unicorn" class="post-image"/>
+                            <img src="/resources/img/avatar/<%=accountInfo.getAvatar()%>" alt="unicorn" class="post-image"/>
                             <div class="post-info">
-                            <h3 class="post-title">Thường Nguyễn</h3>
+                            <h3 class="post-title"><%=accountInfo.getFullName()%></h3>
                             </div>
+
+
+
                         </div>
+
+                        <form class="input-file" id = "form-avatar" action = "/me/avatar?type=avatar" method="post" enctype="multipart/form-data">
+                            <input type="file" name="file" id="file"/>
+                            <label for="file" class="input-label">
+                                <i class="fas fa-cloud-upload-alt icon-upload"></i>
+                            </label>
+                        </form>
+
+                        <button type="button" class="btn btn-warning ml-4" id = "btn-avatar">Cập nhật ảnh đại diện</button>
+
                     </div>
                 </div>
             </div>
@@ -174,6 +219,37 @@ document.addEventListener('DOMContentLoaded', function () {
 })
     </script>
     <%@include file="partials/js-link.jsp" %>
+
+<script>
+    /**
+     <form class="input-file" id = "form-avatar" action = "/me/infomation?type=avatar" method="post">
+     <input type="file" name="file" id="file" id = "input-avatar"/>
+     <label for="file" class="input-label">
+     <i class="fas fa-cloud-upload-alt icon-upload"></i>
+     </label>
+     </form>
+
+     <button type="button" class="btn btn-warning ml-4" id = "btn-avatar">Cập nhật ảnh đại diện</button>
+     */
+
+    const btnAvatar = document.getElementById('btn-avatar')
+    const inputAvatar = document.getElementById('file')
+    const formAvatar = document.getElementById('form-avatar')
+    console.log(btnAvatar, inputAvatar, formAvatar)
+
+    btnAvatar.addEventListener('click', (e) => {
+
+        if(inputAvatar.files.length == 0) {
+            alert("Bạn vui lòng nhập file")
+            return;
+        }
+
+        formAvatar.submit()
+
+    })
+
+
+</script>
 
 </body>
 

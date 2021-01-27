@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="thuongnguyen.it78 17130239 17130299 17130247">
 
-    <title>Register</title>
+    <title>Đăng Ký</title>
 
     <%@include file="partials/css-link.jsp" %>
 

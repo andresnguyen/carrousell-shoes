@@ -1,5 +1,6 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.sql.ResultSet" %>
+<%@ page import="thuongnguyen.it78.models.Account" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,9 @@
     <meta name="author" content="">
 
     <title>Quản Lý Banner</title>
+
+    <link rel="icon" href="/resources/img/site/favicon.ico">
+
 
     <!-- Custom fonts for this template -->
     <link href="/resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,7 +41,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/view">
             <div class="sidebar-brand-icon rotate-n-15">
             </div>
             <div class="sidebar-brand-text mx-3">Carroushoes</div>
@@ -48,7 +52,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/admin/view">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Tổng Quan</span></a>
         </li>
@@ -64,14 +68,14 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="users.html">
+            <a class="nav-link" href="/admin/account">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 <span>Tài Khoản</span></a>
         </li>
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="products.html">
+            <a class="nav-link" href="/admin/product">
                 <i class="fas fa-calendar fa-fw mr-2 text-gray-400"></i>
                 <span>Sản phẩm</span></a>
         </li>
@@ -79,7 +83,7 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="orders.html">
+            <a class="nav-link" href="/admin/order">
                 <i class="fas fa-fw fa-clipboard-list mr-2 text-gray-400"></i>
 
                 <span>Đơn hàng</span></a>
@@ -87,9 +91,16 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="banners.html">
+            <a class="nav-link" href="/admin/banner">
                 <i class="fas fa-fw fa-table  mr-2 text-gray-400"></i>
                 <span>Banner</span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/category">
+                <i class="fas fa-fw fa-table  mr-2 text-gray-400"></i>
+                <span>Category</span></a>
         </li>
 
         <!-- Divider -->
@@ -276,32 +287,36 @@
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
+                    <%
+                        Account account1 = (Account) request.getSession().getAttribute("account");
+
+                    %>
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Thường Nguyễn</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=account1.getFullName()%></span>
                             <img class="img-profile rounded-circle"
-                                 src="/resources/admin/img/undraw_profile.svg">
+                                 src="/resources/img/avatar/<%=account1.getAvatar()%>">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/me/info">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Tài khoản của tôi
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/me/password">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Đổi mật khẩu
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/admin/view">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Quản lý tài khoản
+                                Trang quản lý
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="/me/logout" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Đăng xuất
                             </a>
@@ -347,13 +362,12 @@
 
                                 <tbody>
                                 <% ResultSet rs = (ResultSet) request.getAttribute("bannerlist");
-                                    int i = 1;
                                     while (rs.next()){
                                 %>
                                 <tr>
-                                    <td class = "id-td"><%=i++%></td>
+                                    <td class = "id-td"><%=rs.getString(1)%></td>
                                     <td class = "name-td"><%=rs.getString(2)%></td>
-                                    <td><img src="/resources/img/banner/<%=rs.getString(3)%>" alt="Avatar"></td>
+                                    <td  class = "text-center"><img src="/resources/img/banner/<%=rs.getString(3)%>" alt="Avatar"></td>
                                     <td class = "active-td">
                                         <%if (rs.getInt(4)==2){%>
                                         <span class="badge bg-danger">Ẩn</span>
