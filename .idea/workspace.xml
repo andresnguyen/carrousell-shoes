@@ -7,11 +7,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94337ab3-8755-434c-83b1-43b0e6ec19e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/category/CategoryServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/category/InsertCategoryServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/admin/banner/category/UpdateCategoryServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/admin/category.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/LoginFacebookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb/LoginFacebookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb/RestFB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/META-INF/CarrousellShoes.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/META-INF/CarrousellShoes.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/controllers/LoginFacebookServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/loginfb/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/loginfb/RestFB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/controllers/LoginFacebookServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/loginfb/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/loginfb/RestFB.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +83,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/views/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/loginfb" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -83,11 +92,9 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\views\admin" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\resources\js" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\resources" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web\views" />
       <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\views" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -97,10 +104,12 @@
       <recent name="thuongnguyen.it78.api" />
       <recent name="thuongnguyen.it78.filter" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\resources" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web\views" />
-      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\views" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\java\thuongnguyen\it78\loginfb" />
+      <recent name="C:\Users\E6530\Desktop\carrousell-shoes\src\main\webapp\views\admin" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp\resources\js" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\src\main\webapp" />
+      <recent name="C:\Users\Admin\IdeaProjects\CarrousellShoes\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -268,8 +277,17 @@
       <workItem from="1611495749097" duration="5418000" />
       <workItem from="1611548598079" duration="20248000" />
       <workItem from="1611584632312" duration="2378000" />
-      <workItem from="1611723507150" duration="12081000" />
+      <workItem from="1611723507150" duration="13325000" />
+      <workItem from="1611761090841" duration="1153000" />
     </task>
+    <task id="LOCAL-00001" summary="category management">
+      <created>1611740816707</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1611740816708</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +305,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="category management" />
+    <option name="LAST_COMMIT_MESSAGE" value="category management" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

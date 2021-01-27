@@ -1,4 +1,4 @@
-package thuongnguyen.it78.controllers;
+package thuongnguyen.it78.loginfb;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -7,36 +7,31 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.restfb.types.User;
-import thuongnguyen.it78.loginfb.RestFB;
 import thuongnguyen.it78.models.Account;
 
 @WebServlet("/login-facebook")
 public class LoginFacebookServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    public LoginFacebookServlet() {
-        super();
-    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String code = request.getParameter("code");
-
-        if (code == null || code.isEmpty()) {
-            RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+        String email = request.getParameter("email");
+        String name = request.getParameter("name");
+//        int id = Integer.parseInt(request.getParameter("id"));
+        if (email == null || email.isEmpty()) {
+            RequestDispatcher dis = request.getRequestDispatcher("/views/login.jsp");
             dis.forward(request, response);
         } else {
             Account account = new Account();
-            String accessToken = RestFB.getToken(code);
-            User user = RestFB.getUserInfo(accessToken);
-            request.setAttribute("id", user.getId());
-            request.setAttribute("name", user.getName());
-            account.setFullName(user.getName());
+            account.setFullName(name);
+            account.setEmail(email);
+//            account.setId(id);
             request.getSession().setAttribute("account", account);
-            RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("/views/index.jsp");
             dis.forward(request, response);
         }
 
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
