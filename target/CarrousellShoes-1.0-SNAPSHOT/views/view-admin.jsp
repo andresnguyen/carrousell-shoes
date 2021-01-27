@@ -1,8 +1,12 @@
-<%@ page import="thuongnguyen.it78.models.Order" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="thuongnguyen.it78.models.Account" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="thuongnguyen.it78.models.Account" %><%--
+  Created by IntelliJ IDEA.
+  User: Admin
+  Date: 1/27/2021
+  Time: 10:14 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,26 +18,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Quản Lý Đơn Hàng</title>
-    <link rel="icon" href="/resources/img/site/favicon.ico">
+    <title>Admin Carroushoes</title>
 
-
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts for this template-->
     <link href="/resources/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template-->
     <link href="/resources/admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="icon" href="/resources/img/site/favicon.ico">
 
-    <!-- Custom styles for this page -->
-    <link href="/resources/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <style>
-        .td-address {
-            width: 240px;
-        }
-    </style>
 
 </head>
 
@@ -294,8 +290,7 @@
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <%
-                        Account account = (Account) request.getSession().getAttribute("account");
-
+                    Account account = (Account) request.getSession().getAttribute("account");
                     %>
 
                     <!-- Nav Item - User Information -->
@@ -337,98 +332,197 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Thống Kê</h1>
 
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary" style="display: flex; justify-content: space-between;">
-                            <b>Quản lý đơn hàng</b>
-                        </h6>
+                </div>
+
+                <!-- Content Row -->
+                <div class="row">
+
+                    <%
+                        ArrayList<Integer> list = (ArrayList<Integer>) request.getAttribute("view");
+                    %>
+
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Tổng số người dùng</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><%=list.get(0)%></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Tổng số tiền thu được</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">20.400.000 VNĐ</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tổng Số Sản Phẩm
+                                        </div>
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col-auto">
+                                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%=list.get(1)%></div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="progress progress-sm mr-2">
+                                                    <div class="progress-bar bg-info" role="progressbar"
+                                                         style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th class = "id">ID</th>
-                                    <th class = "date">Ngày đặt hàng</th>
-                                    <th class = "name">Họ và tên</th>
-                                    <th class = "phone">Số điện thoại</th>
-                                    <th class="address">Địa chỉ</th>
-                                    <th class = "status">Trạng thái đơn hàng</th>
-                                    <th class = "action">Thao tác</th>
-
-                                </tr>
-                                </thead>
-
-                                <tbody>
-
-                                <%
-                                    HashMap<Integer, Order> listOrder = (HashMap<Integer, Order>) request.getAttribute("order-me");
-
-                                    for (int i : listOrder.keySet()) {
-                                        Order order = listOrder.get(i);
-
-                                %>
-
-                                <tr>
-                                    <td class = "td-id"><%=i%></td>
-                                    <td class = "td-date"><%=order.getOrderDate()%></td>
-                                    <td class = "td-name"><%=order.getAccount().getFullName()%></td>
-                                    <td class = "td-phone"><%=order.getAccount().getNumber()%></td>
-                                    <td class = "td-address"><%=order.getAccount().getAddress()%></td>
-                                    <td
-<%
-        String result = "";
-        String text = "";
-        String[] className = {"bg-info", "bg-success", "bg-warning", "bg-danger"};
-
-        switch (order.getStatus()) {
-            case 0:
-                text = "Đang chờ duyệt";
-                result = className[0];
-                break;
-            case 1:
-                text = "Đang giao hàng";
-                result = className[1];
-                break;
-            case 2:
-                text = "Hoàn thành";
-                result = className[2];
-                break;
-            case -1:
-                text = "Đã từ chối";
-                result = className[3];
-                break;
-
-        }
-        %> class = "<%=result%>"
-
-                                    ><%=text%></td>
-
-                                    <td class = "td-action">
-                                        <button class="btn btn-warning btn-circle btn-sm btn-view-order">
-                                            <i class="fas fa-file-alt text-white"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <%
-                                    }
-                                %>
-
-                                </tbody>
-                            </table>
+                    <!-- Pending Requests Card Example -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            TỔng số đơn hàng đang chờ</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800"><%=list.get(2)%></div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Content Row -->
+
+                <div class="row">
+
+                    <!-- Area Chart -->
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Biểu Đồ Tăng Trưởng</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                         aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">Dropdown Header:</div>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="myAreaChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pie Chart -->
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="card shadow mb-4">
+                            <!-- Card Header - Dropdown -->
+                            <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Nguồn Doanh Thu</h6>
+                                <div class="dropdown no-arrow">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                         aria-labelledby="dropdownMenuLink">
+                                        <div class="dropdown-header">Dropdown Header:</div>
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card Body -->
+                            <div class="card-body">
+                                <div class="chart-pie pt-4 pb-2">
+                                    <canvas id="myPieChart"></canvas>
+                                </div>
+                                <div class="mt-4 text-center small">
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-primary"></i> Direct
+                                        </span>
+                                    <span class="mr-2">
+                                            <i class="fas fa-circle text-success"></i> Social
+                                        </span>
+                                    <span class="mr-2">
+                                            <i class="fas fa-circle text-info"></i> Referral
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+            <!-- /.container-fluid -->
 
         </div>
         <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; thuongnguyen.it78</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
@@ -461,7 +555,6 @@
         </div>
     </div>
 
-
 <!-- Bootstrap core JavaScript-->
 <script src="/resources/admin/vendor/jquery/jquery.min.js"></script>
 <script src="/resources/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -473,33 +566,11 @@
 <script src="/resources/admin/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="/resources/admin/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="/resources/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script src="/resources/admin/vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="/resources/admin/js/demo/datatables-demo.js"></script>
-
-<script>
-
-    const buttonViews = [...document.querySelectorAll('.btn-view-order')]
-    for(let buttonView of buttonViews) {
-        console.log(buttonView)
-
-        buttonView.addEventListener('click', (e) => {
-            let parentElement = e.target.parentElement.parentElement
-            if (e.target.tagName == 'I') {
-                parentElement = e.target.parentElement.parentElement.parentElement
-            }
-
-            const orderID = parentElement.querySelector('.td-id').innerText.trim()
-
-            window.location = '/admin/order-detail/' + orderID
-        })
-    }
-
-</script>
-
-
+<script src="/resources/admin/js/demo/chart-area-demo.js"></script>
+<script src="/resources/admin/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

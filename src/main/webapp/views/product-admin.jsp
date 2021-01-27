@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="thuongnguyen.it78.models.Shoes" %>
 <%@ page import="thuongnguyen.it78.configs.LibraryMethod" %>
+<%@ page import="thuongnguyen.it78.models.Account" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -303,32 +304,36 @@
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
+                    <%
+                        Account account = (Account) request.getSession().getAttribute("account");
+
+                    %>
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Thường Nguyễn</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=account.getFullName()%></span>
                             <img class="img-profile rounded-circle"
                                  src="/resources/admin/img/undraw_profile.svg">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/me/info">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Tài khoản của tôi
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/me/password">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Đổi mật khẩu
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/admin/view">
                                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Quản lý tài khoản
+                                Trang quản lý
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="/me/logout" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Đăng xuất
                             </a>
@@ -463,19 +468,19 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Ready to Leave?</h5>
+                <h5 class="modal-title" id="exampleModalLabel11">Bạn chắc chắn đăng xuất?</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+            <div class="modal-body">Nhấn đăng xuất để hoàn thành</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+                    <a class="btn btn-primary" href="/me/logout">Đăng xuất</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 <!-- Add Product Modal  -->
 <div class="modal fade" id="add-product" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

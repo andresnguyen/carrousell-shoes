@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -217,6 +218,7 @@ public class CheckOutDAO {
     public static void main(String[] args) {
         // System.out.println(getListOrder().toString());
         // System.out.println(getListOrderOfAccount(1).toString());
+        System.out.println(getView());
     }
 
     public static boolean setStatus(int orderID, int status) {
@@ -240,4 +242,56 @@ public class CheckOutDAO {
         }
         return false;
     }
+
+    public static ArrayList<Integer> getView() {
+        String sql1 = "select count(*) from accounts where account_isDelete != 1";
+        String sql2 = "select count(*) from shoes_details where shoes_detail_isDelete != 1";
+        String sql3 = "select count(*) from orders where order_status = 0";
+        ArrayList<Integer> result = new ArrayList<>();
+
+        Connection connect = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+            connect = ConnectDB.getConnection();
+            pstmt = connect.prepareStatement(sql1);
+
+            rs = pstmt.executeQuery();
+            rs.next();
+            result.add(rs.getInt(1));
+
+            rs.close();
+            pstmt.close();
+
+            pstmt = connect.prepareStatement(sql2);
+
+            rs = pstmt.executeQuery();
+            rs.next();
+
+            result.add(rs.getInt(1));
+
+            rs.close();
+            pstmt.close();
+
+            pstmt = connect.prepareStatement(sql3);
+
+            rs = pstmt.executeQuery();
+            rs.next();
+
+            result.add(rs.getInt(1));
+
+            rs.close();
+            pstmt.close();
+
+            connect.close();
+
+            return result;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
 }

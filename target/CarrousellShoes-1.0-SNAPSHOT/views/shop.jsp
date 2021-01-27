@@ -263,7 +263,6 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
                                 <div class="product__item__pic set-bg" data-setbg="/resources/img/shop/2.jpg">
-                                    <span class="label">Sale</span>
                                     <!-- <ul class="product__hover">
                                         <li><a href="#"><img src="/resources/img/icon/heart.png" alt=""></a></li>
                                         <li><a href="#"><img src="/resources/img/icon/compare.png" alt=""> <span>Compare</span></a>
@@ -519,36 +518,15 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="/resources/img/shop/9.jpg">
-                                    <!-- <ul class="product__hover">
-                                        <li><a href="#"><img src="/resources/img/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="/resources/img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                        </li>
-                                        <li><a href="#"><img src="/resources/img/icon/search.png" alt=""></a></li>
-                                    </ul> -->
+
                                 </div>
                                 <div class="product__item__text">
                                     <h6>Basas New Simple Life - Low Top</h6>
                                     <a href="/shop-details.html" class="add-cart">MUA NGAY</a>
-                                    <!-- <div class="rating">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div> -->
+
                                     <p>BLACK/GUM</p>
                                     <h5>450.000 VND </h5>
-                                    <!-- <div class="product__color__select">
-                                        <label for="pc-31">
-                                            <input type="radio" id="pc-31">
-                                        </label>
-                                        <label class="active black" for="pc-32">
-                                            <input type="radio" id="pc-32">
-                                        </label>
-                                        <label class="grey" for="pc-33">
-                                            <input type="radio" id="pc-33">
-                                        </label>
-                                    </div> -->
+
                                 </div>
                             </div>
                         </div>
@@ -670,7 +648,6 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item sale">
                                 <div class="product__item__pic set-bg" data-setbg="/resources/img<%=shoes.getImage().split(",")[0]%>">
-                                    <span class="label">Sale</span>
                                     <!-- <ul class="product__hover">
                                         <li><a href="#"><img src="/resources/img/icon/heart.png" alt=""></a></li>
                                         <li><a href="#"><img src="/resources/img/icon/compare.png" alt=""> <span>Compare</span></a>
