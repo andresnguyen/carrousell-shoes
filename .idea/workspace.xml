@@ -7,33 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94337ab3-8755-434c-83b1-43b0e6ec19e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/banner/banner-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/img/banner/banner-5.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/AccountServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/AccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/AccountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/ShoesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/ShoesDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/account-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/account-admin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/banner-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/banner-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/information.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/information.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/order-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/order-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/orders-me.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/orders-me.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/partials/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/partials/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/product-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/product-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/signup.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/view-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/view-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/AccountDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/AccountDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/ShoesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/WEB-INF/classes/thuongnguyen/it78/daos/ShoesDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/admin/js/demo/product-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/admin/js/demo/product-admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/account-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/account-admin.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/banner-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/banner-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/information.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/information.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/order-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/order-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/orders-me.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/orders-me.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/partials/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/partials/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/product-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/product-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/signup.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/view-admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/view-admin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/AccountDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/AccountDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/ShoesDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/thuongnguyen/it78/daos/ShoesDAO.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -63,27 +53,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/account-admin.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/LoginServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="426" column="44" lean-forward="true" selection-start-line="426" selection-start-column="44" selection-end-line="426" selection-end-column="44" />
-              <folding>
-                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/product-admin.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="385" selection-start-line="385" selection-end-line="385" />
-              <folding>
-                <element signature="n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="-537">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -98,52 +71,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/OrderServlet.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/RegisterServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/OrderAServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/ProductAServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+            <state relative-caret-position="1474">
+              <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/CheckOutServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/AccountServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-484">
-              <caret line="86" column="52" selection-start-line="86" selection-start-column="41" selection-end-line="86" selection-end-column="52" />
+            <state relative-caret-position="286">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/AccountDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="274" column="32" selection-start-line="274" selection-start-column="17" selection-end-line="274" selection-end-column="32" />
+            <state relative-caret-position="251">
+              <caret line="276" column="39" lean-forward="true" selection-start-line="276" selection-start-column="39" selection-end-line="276" selection-end-column="39" />
               <folding>
                 <element signature="method#getAccount#0;class#AccountDAO#0" />
                 <element signature="method#getAccount#1;class#AccountDAO#0" />
@@ -169,15 +109,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/category-admin.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/product-admin.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="298" lean-forward="true" selection-start-line="298" selection-end-line="298" />
-              <folding>
-                <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="16434">
+              <caret line="747" selection-start-line="747" selection-end-line="747" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/admin/js/demo/account-admin.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/admin/js/demo/product-admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2860">
+              <caret line="130" column="56" selection-start-line="130" selection-start-column="56" selection-end-line="130" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1188">
+              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -241,8 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/ConnectDB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/models/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/models/OrderDetail.java" />
         <option value="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/views/order-details.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/OrderDetailServlet.java" />
@@ -283,14 +248,16 @@
         <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/AvatarServlet.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/information.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/LoginFacebookServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/orders-me.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/category-admin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/order-admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/view-admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/banner-admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/product-admin.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/AccountServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/ShoesDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/order-admin.jsp" />
+        <option value="$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/admin/js/demo/product-admin.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/account-admin.jsp" />
       </list>
     </option>
@@ -330,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -462,12 +430,56 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CarrousellShoes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarrousellShoes" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarrousellShoes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarrousellShoes" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="CarrousellShoes-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarrousellShoes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarrousellShoes" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="CarrousellShoes-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarrousellShoes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarrousellShoes" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="CarrousellShoes-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarrousellShoes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarrousellShoes" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="CarrousellShoes-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarrousellShoes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarrousellShoes" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="CarrousellShoes-1.0-SNAPSHOT" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="demo" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -706,34 +718,34 @@
       <workItem from="1611671401893" duration="15491000" />
       <workItem from="1611724516097" duration="2637000" />
       <workItem from="1611727202683" duration="7852000" />
-      <workItem from="1611738653498" duration="22003000" />
+      <workItem from="1611738653498" duration="24571000" />
+      <workItem from="1611801333594" duration="3276000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200697000" />
+    <option name="totallyTimeSpent" value="206541000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.90797544" visible="true" weight="0.21946308" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9065156" visible="true" weight="0.32416108" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info id="Web" order="7" sideWeight="0.09202454" side_tool="true" visible="true" weight="0.21946308" />
+      <window_info id="Web" order="7" sideWeight="0.09348442" side_tool="true" visible="true" weight="0.32416108" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.07648725" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.17705382" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.41076487" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.28611898" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.04249292" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.16713881" />
@@ -821,40 +833,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/toast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/js/pagination.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/js/paginationjs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/js/search-shoes.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/js/shopping-cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/js/change-size.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/js/add-to-cart.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-503" />
@@ -899,16 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/CheckOutServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1094,20 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="61" column="74" selection-start-line="61" selection-start-column="74" selection-end-line="61" selection-end-column="74" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#div#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/InfoServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1119,17 +1073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2398">
           <caret line="109" column="82" selection-start-line="109" selection-start-column="82" selection-end-line="109" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/order-admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="328" column="25" selection-start-line="328" selection-start-column="25" selection-end-line="328" selection-end-column="25" />
-          <folding>
-            <element signature="n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1169,24 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/product-admin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="385" selection-start-line="385" selection-end-line="385" />
-          <folding>
-            <element signature="n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/LogoutServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/OrderServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1217,10 +1142,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/account-admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2376">
+          <caret line="108" column="50" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/ProductAServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/ShoesDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3872">
+          <caret line="268" column="50" selection-start-line="268" selection-start-column="50" selection-end-line="268" selection-end-column="50" />
+          <folding>
+            <element signature="method#getShoes#0;class#ShoesDAO#0" />
+            <element signature="method#getCategoryByShoesID#0;class#ShoesDAO#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/order-admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8932">
+          <caret line="406" column="9" selection-start-line="406" selection-start-column="9" selection-end-line="406" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/product-admin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16434">
+          <caret line="747" selection-start-line="747" selection-end-line="747" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/admin/js/demo/account-admin.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/CarrousellShoes-1.0-SNAPSHOT/resources/admin/js/demo/product-admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2860">
+          <caret line="130" column="56" selection-start-line="130" selection-start-column="56" selection-end-line="130" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/daos/AccountDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="274" column="32" selection-start-line="274" selection-start-column="17" selection-end-line="274" selection-end-column="32" />
+        <state relative-caret-position="251">
+          <caret line="276" column="39" lean-forward="true" selection-start-line="276" selection-start-column="39" selection-end-line="276" selection-end-column="39" />
           <folding>
             <element signature="method#getAccount#0;class#AccountDAO#0" />
             <element signature="method#getAccount#1;class#AccountDAO#0" />
@@ -1232,28 +1227,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/account-admin.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/LoginServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="426" column="44" lean-forward="true" selection-start-line="426" selection-start-column="44" selection-end-line="426" selection-end-column="44" />
+        <state relative-caret-position="-537">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/LogoutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/RegisterServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1474">
+          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/account/CheckOutServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/thuongnguyen/it78/controllers/admin/ProductAServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="31" column="19" lean-forward="true" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="43" lean-forward="true" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1308,11 +1309,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Web|CarrousellShoes</last-edited>
+          <last-edited>CarrousellShoes</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1320,7 +1322,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.google.protobuf:protobuf-java:3.6.1</last-edited>
+          <last-edited>Maven: com.google.code.gson:gson:2.8.5</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

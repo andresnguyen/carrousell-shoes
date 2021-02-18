@@ -116,7 +116,8 @@
         <!-- Nav Item - Tables -->
         <li class="nav-item">
             <a class="nav-link" href="/admin/category">
-                <i class="fas fa-fw fa-table  mr-2 text-gray-400"></i>
+                <i class="fas fa-caret-square-down  mr-2 text-gray-400"></i>
+
                 <span>Category</span></a>
         </li>
 

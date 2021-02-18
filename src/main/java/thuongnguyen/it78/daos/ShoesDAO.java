@@ -112,7 +112,7 @@ public class ShoesDAO {
 
         String query = "select s.shoes_id, s.shoes_name, s.shoes_image, sd.shoes_detail_price, " +
                 "sd.shoes_detail_color from shoes as s, shoes_details as sd where s.shoes_id = " +
-                "sd.shoes_id and s.shoes_gender = ? group by shoes_id, shoes_name, shoes_image, " +
+                "sd.shoes_id and s.shoes_gender = ? and sd.shoes_detail_isDelete != 1 group by shoes_id, shoes_name, shoes_image, " +
                 "shoes_detail_price, shoes_detail_color";
 
         Connection connect = null;
@@ -251,7 +251,7 @@ public class ShoesDAO {
 
         String query = "select s.shoes_id, s.shoes_name, s.shoes_image, sd.shoes_detail_price, sd.shoes_detail_color " +
                 "from shoes as s, shoes_details as sd " +
-                "where s.shoes_id = sd.shoes_id " + template +
+                "where s.shoes_id = sd.shoes_id and sd.shoes_detail_isDelete != 1 " + template +
                 " group by shoes_id, shoes_name, shoes_image, shoes_detail_price, shoes_detail_color " +
                 sortTemplate +
                 " limit " + start +", " + limit;

@@ -128,7 +128,7 @@ $('#edit-product').on('show.bs.modal', function (event) {
 
 
         // validate value
-        if(idValue.length == 0 || nameValue.length == 0 || colorValue.length == 0 ||
+        if(priceValue.length == 0 || stockValue == 0 || idValue.length == 0 || nameValue.length == 0 || colorValue.length == 0 ||
             descriptionValue.length == 0 ||
             !(activeValue == 1 || activeValue == 0) || !(categoryValue > 0 && categoryValue < 7)) {
             return alert("Có lỗi! Vui lòng kiểm tra lại")
